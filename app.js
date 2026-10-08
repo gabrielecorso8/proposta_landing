@@ -15,12 +15,11 @@ $('preview').addEventListener('click',()=>{const s=state(),now=new Date(),date=n
  if(typeof navigator.share==='function'&&typeof navigator.canShare==='function'&&navigator.canShare({files:[file]})){
   button.disabled=true;
   try{await navigator.share({files:[file]});$('shareStatus').textContent='Verifica l’invio nella chat WhatsApp.';}
-  catch(e){$('shareStatus').textContent=e.name==='AbortError'?'Condivisione annullata.':'Non è stato possibile condividere il PDF. Scaricalo e usa “Apri la nostra chat”.';}
+  catch(e){$('shareStatus').textContent=e.name==='AbortError'?'Condivisione annullata.':'Non è stato possibile condividere il PDF. Scaricalo e allegalo alla nostra chat WhatsApp.';}
   finally{button.disabled=false;}
  }else{
   download();window.open('https://wa.me/393450487680','_blank','noopener,noreferrer');
   $('shareStatus').textContent='Questo browser non condivide allegati. PDF scaricato: allegalo alla nostra chat WhatsApp.';
  }
 });
-$('chat').addEventListener('click',()=>window.open('https://wa.me/393450487680','_blank','noopener,noreferrer'));
 update();
