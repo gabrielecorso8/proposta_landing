@@ -11,12 +11,6 @@ function selectedAddons() { return proposal.bonuses.filter(item => selectedBonus
 function totalAmount() { return selectedPack ? selectedPack.price + selectedAddons().reduce((sum, item) => sum + item.price, 0) : 0; }
 function para(text, cls) { const p = document.createElement('p'); p.textContent = text; if (cls) p.className = cls; return p; }
 function line(text, cls) { const e = document.createElement('div'); e.className = cls; e.textContent = text; return e; }
-function toggleLabel(item, included, disabled, locked) {
- const label = document.createElement('label'); label.className = 'bonus-choice' + (included ? ' is-included' : disabled ? ' is-locked' : '');
- const input = document.createElement('input'); input.type = 'checkbox'; input.value = item.id; input.checked = included || selectedBonuses.has(item.id); input.disabled = included || disabled;
- const title = document.createElement('span'); title.className = 'bonus-choice-title'; title.textContent = included ? 'Già incluso' : disabled ? locked : 'Aggiungi alla proposta';
- label.append(input, title); return label;
-}
 function clearImpossibleSelections(pack) {
  selectedBonuses.forEach(id => { const extra = proposal.bonuses.find(item=>item.id===id); if(!extra || pack.includes.includes(id) || (extra.requires && !pack.includes.includes(extra.requires))) selectedBonuses.delete(id); });
 }
@@ -59,8 +53,10 @@ function renderBonuses() {
   const plans=proposal.packages.filter(pack=>pack.includes.includes(item.id)).map(pack=>pack.name.replace('Sito ',''));
   const planText=plans.length ? 'Incluso in ' + plans.join(' e ') : 'Extra per Avanzato e Pro';
   actions.append(price,para(planText,'tool-plans'));
-  const choice = toggleLabel(item,included,locked,!selectedPack ? 'Scegli prima un sito' : 'Disponibile con Avanzato o Pro');
-  choice.querySelector('input').addEventListener('change',event=>{ if(event.target.checked) selectedBonuses.add(item.id); else selectedBonuses.delete(item.id); $('confirm').checked=false; renderBonuses(); renderSummary(); $('bonuses').querySelector('input[value="'+item.id+'"]')?.focus?.({preventScroll:true}); });
+  const choice = document.createElement('button'); choice.type='button'; choice.className='button button-dark select-extra'; choice.dataset.extra=item.id; choice.disabled=included || locked;
+  choice.textContent=included ? 'Già incluso' : locked ? (!selectedPack ? 'Scegli prima un sito' : 'Disponibile con Avanzato o Pro') : added ? 'Aggiunto ✓ · Rimuovi' : 'Aggiungi alla proposta';
+  choice.setAttribute('aria-pressed', String(included || added));
+  choice.addEventListener('click',()=>{ if(selectedBonuses.has(item.id)) selectedBonuses.delete(item.id); else selectedBonuses.add(item.id); $('confirm').checked=false; renderBonuses(); renderSummary(); $('bonuses').querySelector('[data-extra="'+item.id+'"]')?.focus?.({preventScroll:true}); });
   actions.append(choice);
   if(selectedPack && locked) { const upgrade=document.createElement('a'); upgrade.href='#proposte'; upgrade.className='text-button'; upgrade.textContent='Confronta Avanzato e Pro ↑'; upgrade.addEventListener('click',()=>setStep(1)); actions.append(upgrade); }
   card.append(header,info,actions); root.append(card);
