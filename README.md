@@ -1,10 +1,12 @@
 # Proposta sito per galleria d’arte
 
-Preventivo interattivo con percorso guidato: esplora FORMA, scegli un sito, personalizza gli strumenti e salva il riepilogo. Una navigazione fissa segnala i tre passaggi e una barra della selezione rende sempre accessibili sito, totale e passaggio successivo.
+Preventivo interattivo con il titolo «La proposta per la tua galleria» direttamente sopra il riquadro navigabile FORMA. Dopo il fac simile, il percorso guida alla scelta del sito, agli strumenti e al riepilogo.
 
-Le schede confrontano tre caratteristiche, vantaggio e limite. Aprendo una scheda si vedono prezzo e pulsante di scelta; le specifiche complete sono in un approfondimento secondario. I prezzi restano nascosti nei riquadri chiusi. Le condizioni sono raccolte in sezioni espandibili dopo il riepilogo.
+Le offerte mostrano nome, strumenti inclusi, vantaggio e limite, senza elenchi introduttivi ripetuti. Il prezzo del sito compare nell’approfondimento insieme al pulsante di scelta; le specifiche complete restano consultabili separatamente.
 
-La scelta di un sito porta agli strumenti. Gli strumenti inclusi, aggiunti o bloccati mostrano il proprio stato. Quando manca il pannello, il collegamento alla relativa scheda permette di vedere il suo costo prima di aggiungerlo.
+I tre strumenti sono sempre aperti, con funzioni, limite, prezzo e selettore visibili. Accanto al prezzo è indicato in quali piani lo strumento è incluso. Quando il piano scelto lo comprende, il prezzo separato viene barrato e il controllo risulta già selezionato e disabilitato. Le Gallery Digital Cards restano opzionali in tutti i piani.
+
+La navigazione dei tre passaggi e la barra con sito e totale facilitano il ritorno alla configurazione. Le condizioni sono raccolte in sezioni espandibili dopo il riepilogo.
 
 ## Offerte
 
