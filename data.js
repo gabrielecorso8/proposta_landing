@@ -1,7 +1,6 @@
 const proposal = {
   "intro": [
-    "Un sito che dia spazio alle opere e renda semplice il primo contatto con la galleria: un catalogo da esplorare, immagini da osservare e informazioni chiare per chiedere dettagli o organizzare una visita.",
-    "La pagina si apre con il fac simile FORMA, così puoi navigare prima l’esperienza visiva proposta. Qui sotto trovi tre livelli di realizzazione, con funzioni, limiti e moduli aggiuntivi esplicitati."
+    "Esplora il fac simile, scegli il sito e aggiungi gli strumenti che ti servono. Il totale si aggiorna mentre componi la proposta."
   ],
   "confirmation": "Ho letto la selezione e chiedo di confermare perimetro, tempi e condizioni prima dell’avvio dei lavori.",
   "externalCosts": "Dominio, hosting, servizi email, sincronizzazioni con calendari esterni ed eventuali servizi di terze parti si verificano e si concordano prima dell’avvio. Gli eventuali costi ricorrenti non sono compresi negli importi indicati.",
@@ -41,7 +40,18 @@ const proposal = {
         "Profili degli artisti, catalogo e schede delle opere.",
         "Eventi, mostre e contatti diretti.",
         "Strumenti di gestione aggiungibili secondo necessità."
-      ]
+      ],
+      "ui": {
+        "summary": "Presenta la galleria e le opere, con un percorso diretto al contatto.",
+        "benefit": "Una presenza curata per farti conoscere e ricevere contatti.",
+        "limit": "Per aggiornare i contenuti serve il mio intervento, salvo aggiungere il pannello.",
+        "features": [
+          "Artisti, opere, mostre ed eventi",
+          "Catalogo con schede e filtri",
+          "Contatti diretti via email e WhatsApp"
+        ],
+        "included": "Nessuno strumento incluso"
+      }
     },
     {
       "id": "advanced",
@@ -83,7 +93,18 @@ const proposal = {
         "Pannello privato di controllo già incluso.",
         "Aggiornamenti autonomi di artisti, opere, collezioni ed eventi.",
         "Disponibilità delle opere sempre aggiornate."
-      ]
+      ],
+      "ui": {
+        "summary": "Il sito completo, con la libertà di aggiornarlo in autonomia.",
+        "benefit": "Aggiorni artisti, opere, eventi e disponibilità senza dipendere da me.",
+        "limit": "Gestionale richieste e Gallery Digital Cards si aggiungono a parte.",
+        "features": [
+          "Tutto il Sito Base",
+          "Pannello di controllo privato incluso",
+          "Aggiornamenti autonomi dei contenuti"
+        ],
+        "included": "Pannello incluso"
+      }
     },
     {
       "id": "pro",
@@ -131,7 +152,18 @@ const proposal = {
         "Modulo informazioni e richieste di visita incluso.",
         "Gestionale per rispondere direttamente alle richieste.",
         "Organizzazione delle visite e disponibilità automatizzate."
-      ]
+      ],
+      "ui": {
+        "summary": "Il sito autonomo, con richieste e visite organizzate nello stesso pannello.",
+        "benefit": "Rispondi ai contatti dal gestionale e automatizzi l’organizzazione delle visite.",
+        "limit": "Gallery Digital Cards opzionali. Calendari esterni da concordare.",
+        "features": [
+          "Tutto il Sito Avanzato",
+          "Modulo informazioni e visite incluso",
+          "Gestionale con risposte e calendario"
+        ],
+        "included": "Pannello e gestionale inclusi"
+      }
     }
   ],
   "bonuses": [
@@ -147,7 +179,12 @@ const proposal = {
         "Modifica di testi, immagini, ordine dei contenuti e disponibilità: disponibile, riservata o venduta.",
         "Accesso privato, sessione guidata e istruzioni per le attività quotidiane."
       ],
-      "lockedText": "Seleziona prima un’offerta. Il pannello è aggiungibile al Sito Base ed è già incluso in Sito Avanzato e Sito Pro."
+      "lockedText": "Seleziona prima un’offerta. Il pannello è aggiungibile al Sito Base ed è già incluso in Sito Avanzato e Sito Pro.",
+      "ui": {
+        "summary": "Aggiorna il sito in autonomia.",
+        "benefit": "Modifica artisti, opere, eventi e disponibilità dal pannello privato.",
+        "limit": "Gestisce i contenuti concordati; nuovi layout si valutano a parte."
+      }
     },
     {
       "id": "appointments",
@@ -162,7 +199,12 @@ const proposal = {
         "Giorni, orari, durata delle visite e chiusure configurabili dalla galleria.",
         "Disponibilità aggiornate automaticamente dopo conferme, spostamenti e annullamenti; conferme e promemoria nel flusso concordato."
       ],
-      "lockedText": "Richiede il pannello di controllo. Nel Sito Base aggiungi prima il pannello; nel Sito Avanzato puoi aggiungere il gestionale; nel Sito Pro è già incluso."
+      "lockedText": "Richiede il pannello di controllo. Nel Sito Base aggiungi prima il pannello; nel Sito Avanzato puoi aggiungere il gestionale; nel Sito Pro è già incluso.",
+      "ui": {
+        "summary": "Ricevi richieste, rispondi e organizza le visite.",
+        "benefit": "Risposte dal gestionale e slot aggiornati automaticamente.",
+        "limit": "Richiede il pannello. I servizi email e i calendari esterni vanno configurati."
+      }
     },
     {
       "id": "qr",
@@ -177,7 +219,12 @@ const proposal = {
         "Scelta della destinazione: profilo dell’artista, evento specifico o singola opera.",
         "Aggiornamento della destinazione dal pannello senza ristampare il QR code."
       ],
-      "lockedText": "Le Gallery Digital Cards richiedono il pannello di controllo. Aggiungilo al Sito Base oppure scegli Sito Avanzato o Sito Pro."
+      "lockedText": "Le Gallery Digital Cards richiedono il pannello di controllo. Aggiungilo al Sito Base oppure scegli Sito Avanzato o Sito Pro.",
+      "ui": {
+        "summary": "Una card digitale per ogni artista.",
+        "benefit": "Condividi un link o QR verso profilo, eventi o singole opere.",
+        "limit": "Richiede il pannello e resta opzionale in tutte le offerte."
+      }
     }
   ],
   "sections": [

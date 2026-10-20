@@ -11,91 +11,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Vai al contenuto</a>
-  <header class="masthead">
-    <a class="wordmark" href="#inizio" aria-label="Inizio proposta">G<span>/</span></a>
-    <span class="masthead-label">Galleria d’arte <span>·</span> Proposta digitale</span>
-    <a class="masthead-link" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">Visita FORMA <span aria-hidden="true">↗</span></a>
-  </header>
-
-  <main id="main">
-    <section class="reference container" id="inizio" aria-labelledby="reference-title">
-      <div class="reference-copy">
-        <p class="eyebrow"><span>01</span> Fac simile interattivo</p>
-        <div class="reference-intro">
-          <h1 id="reference-title">Prima, una visita.</h1>
-          <div id="intro" class="reference-intro-copy" aria-label="Introduzione alla proposta"></div>
-        </div>
-      </div>
-      <figure class="reference-figure">
-        <a class="reference-image-link" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer" aria-label="Apri e naviga il fac simile interattivo FORMA in una nuova scheda">
-          <img src="assets/forma-preview.png" alt="Anteprima di FORMA: collage di opere, catalogo e collegamenti alle sezioni della galleria" width="1280" height="720">
-          <span class="image-cta">Apri e naviga il fac simile <span aria-hidden="true">↗</span></span>
-        </a>
-        <figcaption><span>FORMA <span class="caption-slash">/</span> Un esempio di direzione visiva</span><a href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">Vai al sito interattivo <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
-      <a class="continue-link" href="#proposte">Ora, le tre proposte <span aria-hidden="true">↓</span></a>
-    </section>
-
-    <section class="offers-section container" id="proposte" aria-labelledby="offers-title">
-      <div class="section-heading">
-        <p class="eyebrow"><span>02</span> Il sito della galleria</p>
-        <div class="heading-row">
-          <h2 id="offers-title">Scegli il tuo<br>punto di partenza.</h2>
-          <p class="section-intro">Tre livelli di autonomia e relazione con i collezionisti. Apri un’offerta per leggerne i dettagli e vedere l’investimento.</p>
-        </div>
-      </div>
-      <div class="packages" id="packages" role="group" aria-label="Scegli un pacchetto per il sito"></div>
-    </section>
-
-    <section class="bonuses-section" id="bonus" aria-labelledby="bonuses-title">
-      <div class="container">
-        <div class="section-heading bonus-heading">
-          <p class="eyebrow"><span>03</span> Strumenti per la galleria</p>
-          <div class="heading-row">
-            <h2 id="bonuses-title">Il pannello, e le sue<br>estensioni pratiche.</h2>
-            <p class="section-intro">Il pannello rende autonoma la galleria. Il gestionale organizza richieste e visite; le Gallery Digital Cards collegano ogni artista al proprio pubblico. Entrambe le estensioni richiedono il pannello.</p>
-          </div>
-        </div>
-        <div class="bonus-grid" id="bonuses"></div>
-      </div>
-    </section>
-
-    <section class="terms-section container" aria-labelledby="terms-title">
-      <div class="section-heading">
-        <p class="eyebrow"><span>04</span> Dal progetto alla consegna</p>
-        <div class="heading-row">
-          <h2 id="terms-title">Prima di iniziare.</h2>
-          <p class="section-intro">Un perimetro chiaro, i materiali della galleria e un calendario condiviso.</p>
-        </div>
-      </div>
-      <div class="terms-list" id="terms"></div>
-    </section>
-
-    <section class="checkout container" aria-labelledby="checkout-title">
-      <div class="checkout-left">
-        <p class="eyebrow"><span>05</span> La configurazione scelta</p>
-        <h2 id="checkout-title">Una proposta<br>su misura.</h2>
-        <p class="checkout-intro">Il riepilogo si aggiorna con il sito e gli strumenti che hai scelto.</p>
-        <div id="summary" class="summary-list" aria-live="polite"></div>
-        <div class="total-row"><span>Totale indicativo</span><output id="total" aria-live="polite">Scegli un’offerta</output></div>
-        <p class="external-costs" id="externalCosts"></p>
-      </div>
-      <div class="checkout-right">
-        <label class="confirmation"><input type="checkbox" id="confirm"><span id="confirmationText"></span></label>
-        <button class="button button-dark" id="preview" type="button" disabled>Prepara il riepilogo <span aria-hidden="true">↗</span></button>
-        <p class="checkout-caption">Puoi vedere, scaricare o condividere un PDF con la selezione e la data.</p>
-        <p class="status" id="status" role="status" aria-live="polite"></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer container">
-    <a class="footer-wordmark" href="#inizio">G<span>/</span></a>
-    <p>Una proposta costruita intorno alle opere e al modo in cui la galleria vuole incontrare il proprio pubblico.</p>
-    <a href="#inizio">Torna all’inizio ↑</a>
-  </footer>
-
+<a class="skip-link" href="#proposte">Vai alle offerte</a>
+<header class="masthead container">
+  <a class="wordmark" href="#inizio" aria-label="Inizio">G<span>/</span></a>
+  <span class="masthead-label">Galleria d’arte · Preventivo interattivo</span>
+  <a href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer" class="demo-top">Esplora FORMA ↗</a>
+</header>
+<main>
+  <section class="hero container" id="inizio">
+    <p class="eyebrow">La proposta per la tua galleria</p>
+    <h1>Un sito da immaginare.<br>Una proposta da comporre.</h1>
+    <div id="intro" class="intro"></div>
+    <ol class="how-it-works" aria-label="Come usare il preventivo">
+      <li><span>1</span><div><strong>Scegli il sito</strong><p>Apri un’offerta, scopri il prezzo e selezionala.</p></div></li>
+      <li><span>2</span><div><strong>Personalizza</strong><p>Aggiungi i tool compatibili. Quelli inclusi sono già attivi.</p></div></li>
+      <li><span>3</span><div><strong>Salva la proposta</strong><p>Controlla il totale e scarica il riepilogo PDF.</p></div></li>
+    </ol>
+    <a class="reference" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">
+      <img src="assets/forma-preview.png" width="1280" height="720" alt="Anteprima del fac simile FORMA con opere e catalogo">
+      <span class="reference-caption"><span><strong>Prima, esplora FORMA</strong><small>Il fac simile del sito: stile e navigazione da provare.</small></span><span>Apri il sito ↗</span></span>
+    </a>
+    <a class="start-link" href="#proposte">Inizia a comporre il preventivo ↓</a>
+  </section>
+  <nav class="step-nav" aria-label="Passaggi del preventivo"><div class="container">
+    <a href="#proposte" id="nav-site" aria-current="step"><span>1</span> Scegli il sito</a>
+    <a href="#bonus" id="nav-tools"><span>2</span> Aggiungi strumenti</a>
+    <a href="#riepilogo" id="nav-summary"><span>3</span> Riepilogo</a>
+  </div></nav>
+  <section class="container stage" id="proposte" aria-labelledby="offers-title">
+    <div class="section-heading"><p class="eyebrow">Passaggio 1</p><h2 id="offers-title">Quale sito ti serve?</h2><p>Confronta i vantaggi. Apri un’offerta per vedere il prezzo e sceglierla.</p></div>
+    <div id="packages" class="packages" role="group" aria-label="Offerte sito"></div>
+  </section>
+  <section class="tools-section" id="bonus" aria-labelledby="bonuses-title"><div class="container stage">
+    <div class="section-heading"><p class="eyebrow">Passaggio 2 · Facoltativo</p><h2 id="bonuses-title">Gli strumenti per lavorare meglio.</h2><p id="tools-hint" aria-live="polite">Scegli prima un sito: vedrai gli strumenti inclusi e quelli che puoi aggiungere.</p></div>
+    <p class="dependency-note">Il pannello è la base. Gestionale e Digital Cards sono le sue estensioni.</p>
+    <div id="bonuses" class="bonus-grid"></div>
+    <a href="#riepilogo" class="button button-dark tools-next" id="tools-next">Continua al riepilogo →</a>
+  </div></section>
+  <section class="container stage checkout" id="riepilogo" aria-labelledby="checkout-title">
+    <div><p class="eyebrow">Passaggio 3</p><h2 id="checkout-title">Il tuo preventivo.</h2><p class="checkout-intro">Puoi cambiare sito e strumenti in qualsiasi momento.</p><div id="summary" class="summary-list" aria-live="polite"></div><div class="total-row"><span>Totale indicativo</span><output id="total" aria-live="polite">—</output></div><p id="externalCosts" class="external-costs"></p></div>
+    <div class="checkout-actions"><p>Salva la configurazione per parlarne insieme.</p><label class="confirmation"><input type="checkbox" id="confirm"><span id="confirmationText"></span></label><button class="button button-dark" id="preview" disabled type="button">Anteprima e PDF →</button><p class="small-note">Il riepilogo non conferma un ordine.</p><p id="status" role="status"></p></div>
+  </section>
+  <section class="container terms-section" aria-labelledby="terms-title"><h2 id="terms-title">Dettagli prima di iniziare</h2><p class="small-note">Perimetro, materiali e condizioni: consulta solo ciò che ti serve.</p><div id="terms" class="terms-list"></div></section>
+</main>
+<footer class="container site-footer"><span>Proposta per galleria d’arte</span><a href="#inizio">Torna all’inizio ↑</a></footer>
+<div class="selection-dock" id="selection-dock" hidden><div class="container"><span id="dock-selection"></span><strong id="dock-total"></strong><a class="button button-accent" id="dock-next" href="#bonus">Personalizza →</a></div></div>
   <dialog id="modal" aria-labelledby="modal-title">
     <div class="dialog-top"><p class="eyebrow">Proposta · Galleria d’arte</p><button class="close" id="close" type="button" aria-label="Chiudi">Chiudi <span aria-hidden="true">×</span></button></div>
     <h2 id="modal-title">Il riepilogo della scelta.</h2>
@@ -110,4 +70,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-

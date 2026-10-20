@@ -1,6 +1,10 @@
 # Proposta sito per galleria d’arte
 
-Pagina statica con FORMA come riferimento navigabile prima delle offerte. Le descrizioni sono visibili nei riquadri chiusi; i prezzi delle offerte compaiono soltanto nell’approfondimento.
+Preventivo interattivo con percorso guidato: esplora FORMA, scegli un sito, personalizza gli strumenti e salva il riepilogo. Una navigazione fissa segnala i tre passaggi e una barra della selezione rende sempre accessibili sito, totale e passaggio successivo.
+
+Le schede confrontano tre caratteristiche, vantaggio e limite. Aprendo una scheda si vedono prezzo e pulsante di scelta; le specifiche complete sono in un approfondimento secondario. I prezzi restano nascosti nei riquadri chiusi. Le condizioni sono raccolte in sezioni espandibili dopo il riepilogo.
+
+La scelta di un sito porta agli strumenti. Gli strumenti inclusi, aggiunti o bloccati mostrano il proprio stato. Quando manca il pannello, il collegamento alla relativa scheda permette di vedere il suo costo prima di aggiungerlo.
 
 ## Offerte
 

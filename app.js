@@ -22,81 +22,60 @@ function clearImpossibleSelections(pack) {
 }
 function renderPackages() {
  const root = $('packages'); root.replaceChildren();
- const includedTitles = {dashboard:'Pannello di controllo incluso', appointments:'Gestionale richieste e visite incluso'};
  proposal.packages.forEach((pack, index) => {
-  const card = document.createElement('article');
-  card.className = 'package' + (selectedPack?.id === pack.id ? ' is-selected' : '');
-  card.dataset.id = pack.id;
-
-  const header = document.createElement('div'); header.className = 'package-summary';
-  const number = document.createElement('span'); number.className = 'package-number'; number.textContent = String(index + 1).padStart(2, '0');
-  const label = document.createElement('span'); label.className = 'package-label';
-  const kicker = para(pack.kicker, 'package-kicker'); const name = document.createElement('strong'); name.textContent = pack.name; label.append(kicker, name);
-  const included = document.createElement('div'); included.className = 'package-included';
-  pack.includes.forEach(id => { const badge = document.createElement('span'); badge.textContent = includedTitles[id] || bonusById(id)?.title || id; included.append(badge); });
-  header.append(number, label, included);
-  card.append(header, para(pack.description, 'package-description'));
-
-  const highlights = document.createElement('ul'); highlights.className = 'package-highlights';
-  (pack.highlights || pack.items.slice(0, 4)).forEach(item => { const li = document.createElement('li'); li.textContent = item; highlights.append(li); });
-  card.append(highlights);
-
-  const details = document.createElement('details'); details.className = 'package-details';
-  const summary = document.createElement('summary'); summary.textContent = 'Approfondisci l’offerta';
-  const body = document.createElement('div'); body.className = 'package-body';
-  const blocks = document.createElement('div'); blocks.className = 'package-blocks';
-  pack.blocks.forEach(block => { const section = document.createElement('section'); const h = document.createElement('h4'); h.textContent = block.title; section.append(h, para(block.text)); blocks.append(section); }); body.append(blocks);
-  const listTitle = document.createElement('h4'); listTitle.className = 'package-list-title'; listTitle.textContent = 'Cosa comprende'; body.append(listTitle);
-  const list = document.createElement('ul'); list.className = 'package-items'; pack.items.forEach(item => { const li = document.createElement('li'); li.textContent = item; list.append(li); }); body.append(list);
-  const benefit = document.createElement('p'); benefit.className = 'package-benefit'; benefit.append(document.createTextNode('Il vantaggio · ' + pack.benefit)); body.append(benefit);
-  const limit = document.createElement('p'); limit.className = 'package-limit'; limit.append(document.createTextNode('Limite · ' + pack.limit)); body.append(limit);
-  if (pack.after) body.append(para(pack.after, 'package-after'));
-  const purchase = document.createElement('div'); purchase.className = 'package-purchase';
-  const price = document.createElement('strong'); price.className = 'expanded-price'; price.textContent = money(pack.price);
-  const choose = document.createElement('button'); choose.type = 'button'; choose.className = 'button button-dark select-package'; choose.textContent = selectedPack?.id === pack.id ? 'Offerta selezionata ✓' : 'Scegli questa offerta';
-  choose.addEventListener('click', () => { selectedPack = pack; clearImpossibleSelections(pack); renderPackages(); renderBonuses(); renderSummary(); });
-  purchase.append(price, choose); body.append(purchase); details.append(summary, body);
-  if (selectedPack?.id === pack.id) details.open = true;
-  card.append(details); root.append(card);
+  const card = document.createElement('article'); card.className = 'package' + (selectedPack?.id === pack.id ? ' is-selected' : ''); card.dataset.id = pack.id;
+  const top = document.createElement('div'); top.className = 'package-top'; top.append(para('0' + (index + 1), 'package-number'), para(selectedPack?.id === pack.id ? 'Selezionato ✓' : pack.kicker, 'package-kicker'));
+  const heading = document.createElement('h3'); heading.textContent = pack.name; card.append(top, heading, para(pack.ui.summary, 'package-description'));
+  const features = document.createElement('ul'); features.className = 'package-highlights'; pack.ui.features.forEach(text => { const li = document.createElement('li'); li.textContent = text; features.append(li); }); card.append(features);
+  const tradeoffs = document.createElement('div'); tradeoffs.className = 'tradeoffs'; tradeoffs.append(para('Vantaggio', 'tradeoff-label'), para(pack.ui.benefit), para('Limite', 'tradeoff-label'), para(pack.ui.limit)); card.append(tradeoffs);
+  const details = document.createElement('details'); details.className = 'package-details'; const summary = document.createElement('summary'); summary.textContent = 'Scopri prezzo e scegli';
+  const content = document.createElement('div'); content.className = 'package-body';
+  const purchase = document.createElement('div'); purchase.className = 'package-purchase'; const price = document.createElement('strong'); price.className = 'expanded-price'; price.textContent = money(pack.price);
+  const choose = document.createElement('button'); choose.type = 'button'; choose.className = 'button button-dark select-package'; choose.textContent = selectedPack?.id === pack.id ? 'Selezionato ✓' : 'Scegli ' + pack.name;
+  choose.addEventListener('click', () => { selectedPack = pack; clearImpossibleSelections(pack); $('confirm').checked = false; renderPackages(); renderBonuses(); renderSummary(); setStep(2); $('bonus').scrollIntoView?.({behavior:'smooth', block:'start'}); $('bonuses-title').setAttribute('tabindex','-1'); $('bonuses-title').focus?.({preventScroll:true}); });
+  purchase.append(price, choose); content.append(purchase, para(pack.ui.included, 'included-note'));
+  const full = document.createElement('details'); full.className = 'full-spec'; const fullSummary = document.createElement('summary'); fullSummary.textContent = 'Tutte le funzioni incluse'; const list = document.createElement('ul'); pack.items.forEach(text => { const li = document.createElement('li'); li.textContent = text; list.append(li); }); full.append(fullSummary, list); if(pack.after) full.append(para(pack.after)); content.append(full);
+  details.append(summary, content); if(selectedPack?.id === pack.id) details.open = true; card.append(details); root.append(card);
  });
 }
 function renderBonuses() {
- const root = $('bonuses'); root.replaceChildren();
+ const root = $('bonuses'); const opened = new Set([...root.querySelectorAll('details[open]')].map(el=>el.dataset.tool)); root.replaceChildren();
  proposal.bonuses.forEach(item => {
-  const card = document.createElement('article'); card.className = 'bonus-card';
-  const head = document.createElement('div'); head.className = 'bonus-card-head'; const title = document.createElement('h3'); title.textContent = item.title; const tag = para(item.tag, 'bonus-tag'); head.append(title, tag); card.append(head, para(item.text, 'bonus-description'));
-  const included = includedIds(selectedPack).includes(item.id);
-  const locked = !selectedPack || (!!item.requires && !panelActive());
-  const detail = document.createElement('details'); detail.className = 'bonus-price-details';
-  const summary = document.createElement('summary'); summary.textContent = included ? 'Funzioni dello strumento incluso' : 'Approfondisci lo strumento';
-  const info = document.createElement('div'); info.className = 'tool-details';
-  const list = document.createElement('ul');
-  (item.details || []).forEach(text => { const li = document.createElement('li'); li.textContent = text; list.append(li); }); info.append(list);
-  if (!included) { const price = document.createElement('strong'); price.className = 'tool-price'; price.textContent = money(item.price); info.append(price); }
-  if (locked) info.append(para(!selectedPack ? 'Seleziona prima un’offerta per configurare gli strumenti.' : item.lockedText, 'tool-requirement'));
-  const choice = toggleLabel(item, included, locked, !selectedPack ? 'Seleziona prima un’offerta' : 'Richiede il pannello di controllo');
-  choice.querySelector('input').addEventListener('change', event => { if (event.target.checked) selectedBonuses.add(item.id); else { selectedBonuses.delete(item.id); if (item.id === 'dashboard') { selectedBonuses.delete('qr'); selectedBonuses.delete('appointments'); } } renderBonuses(); renderSummary(); });
-  info.append(choice); detail.append(summary, info); card.append(detail);
-  if (included) card.append(para('Già incluso nell’offerta selezionata', 'tool-included'));
-  root.append(card);
+  const included = includedIds(selectedPack).includes(item.id); const added = selectedBonuses.has(item.id); const locked = !selectedPack || (!!item.requires && !panelActive());
+  const card = document.createElement('article'); card.className = 'bonus-card' + (included || added ? ' is-active' : '');
+  const state = included ? 'Già incluso' : added ? 'Aggiunto ✓' : !selectedPack ? 'Scegli prima un sito' : locked ? 'Richiede il pannello' : 'Opzionale';
+  card.append(para(state, 'tool-state')); const title = document.createElement('h3'); title.textContent = item.title; card.append(title, para(item.ui.summary, 'bonus-description'));
+  const details = document.createElement('details'); details.className = 'bonus-price-details'; details.dataset.tool = item.id; details.open = opened.has(item.id);
+  const summary = document.createElement('summary'); summary.textContent = included ? 'Vantaggi e limiti' : 'Scopri e configura';
+  const info = document.createElement('div'); info.className = 'tool-details'; info.append(para('Vantaggio', 'tradeoff-label'), para(item.ui.benefit), para('Limite', 'tradeoff-label'), para(item.ui.limit));
+  if(!included) { const price = document.createElement('strong'); price.className = 'tool-price'; price.textContent = money(item.price); info.append(price); }
+  const choice = toggleLabel(item, included, locked, !selectedPack ? 'Seleziona prima un sito' : 'Richiede il pannello');
+  choice.querySelector('input').addEventListener('change', event => { if(event.target.checked) selectedBonuses.add(item.id); else { selectedBonuses.delete(item.id); if(item.id === 'dashboard') { selectedBonuses.delete('qr'); selectedBonuses.delete('appointments'); } } $('confirm').checked = false; renderBonuses(); renderSummary(); const replacement = $('bonuses').querySelector('input[value="' + item.id + '"]'); replacement?.focus?.({preventScroll:true}); }); info.append(choice);
+  if(selectedPack && locked) { const unlock = document.createElement('button'); unlock.type='button'; unlock.className='text-button'; unlock.textContent='Vedi il pannello necessario'; unlock.addEventListener('click', () => { const panel = $('bonuses').querySelector('details[data-tool="dashboard"]'); if(panel) { panel.open = true; panel.scrollIntoView?.({behavior:'smooth', block:'center'}); panel.querySelector('summary')?.focus?.({preventScroll:true}); } }); info.append(unlock); }
+  const full = document.createElement('details'); full.className = 'full-spec'; const fullSummary = document.createElement('summary'); fullSummary.textContent = 'Dettagli delle funzioni'; const list=document.createElement('ul'); (item.details || []).forEach(text=>{ const li=document.createElement('li'); li.textContent=text; list.append(li); }); full.append(fullSummary,list); info.append(full);
+  details.append(summary, info); card.append(details); root.append(card);
  });
+}
+function setStep(step) {
+ ['nav-site','nav-tools','nav-summary'].forEach((id,index) => { if(index + 1 === step) $(id).setAttribute('aria-current','step'); else $(id).removeAttribute('aria-current'); });
+ const next = $('dock-next'); next.href = step === 1 ? '#bonus' : '#riepilogo'; next.textContent = step === 1 ? 'Personalizza →' : 'Vedi riepilogo →';
 }
 function renderSummary() {
  const root = $('summary'); root.replaceChildren();
- if (!selectedPack) { $('total').textContent = 'Scegli un’offerta'; $('preview').disabled = true; return; }
+ if (!selectedPack) { root.append(para('Scegli un sito per iniziare. Il totale e gli strumenti compariranno qui.')); const start = document.createElement('a'); start.href='#proposte'; start.textContent='Scegli il sito ↑'; start.className='text-button'; root.append(start); $('total').textContent = '—'; $('preview').disabled = true; $('selection-dock').hidden = true; return; }
  root.append(line(selectedPack.name, 'summary-primary')); root.append(line('Pacchetto · ' + money(selectedPack.price), 'summary-row'));
  const included = selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(bonusById);
  if (included.length) { root.append(line('Strumenti inclusi', 'summary-label')); included.forEach(item => root.append(line(item.title + ' · già incluso', 'summary-row'))); }
  const additions = selectedAddons();
  if (additions.length) { root.append(line('Strumenti aggiunti', 'summary-label')); additions.forEach(item => root.append(line(item.title + ' · ' + money(item.price), 'summary-row'))); }
- $('total').textContent = money(totalAmount()); $('preview').disabled = false;
+ $('total').textContent = money(totalAmount()); $('preview').disabled = false; $('selection-dock').hidden = false; $('dock-selection').textContent = selectedPack.name; $('dock-total').textContent = money(totalAmount()); $('tools-hint').textContent = selectedPack.name + ' selezionato. Gli strumenti già inclusi sono indicati; puoi aggiungere gli altri oppure continuare al riepilogo.';
 }
 function dateLabel() { return new Intl.DateTimeFormat('it-IT', {timeZone:'Europe/Rome', day:'2-digit', month:'long', year:'numeric'}).format(new Date()); }
 function currentSelection() { return {pack:selectedPack, includedBonuses:selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(bonusById), addedBonuses:selectedAddons(), total:totalAmount()}; }
 function sheetContent(selection, confirmed) {
  const root = $('sheet'); root.replaceChildren();
  const h = document.createElement('h3'); h.textContent = selection.pack.name + ' · ' + money(selection.pack.price); root.append(h);
- root.append(para(selection.pack.description));
+ root.append(para(selection.pack.ui?.summary || selection.pack.description));
  const included = para('Strumenti inclusi: ' + (selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'nessuno')); root.append(included);
  if (selection.addedBonuses.length) root.append(para('Strumenti aggiunti: ' + selection.addedBonuses.map(x => x.title + ' (' + money(x.price) + ')').join(', ')));
  const total = document.createElement('strong'); total.className = 'sheet-total'; total.textContent = 'Totale indicativo · ' + money(selection.total); root.append(total);
@@ -108,7 +87,10 @@ let pdfUrl = null;
 function makePdf(confirmed) { const blob = new Blob([createPDF(optionLines(currentSelection(), dateLabel(), confirmed))], {type:'application/pdf'}); if (pdfUrl) URL.revokeObjectURL(pdfUrl); pdfUrl = URL.createObjectURL(blob); $('pdfView').src = pdfUrl; return blob; }
 $('intro').replaceChildren(...proposal.intro.map(t => para(t)));
 $('confirmationText').textContent = proposal.confirmation; $('externalCosts').textContent = proposal.externalCosts;
-proposal.sections.forEach(([title, paragraphs]) => { const section = document.createElement('section'); section.className = 'term'; const h = document.createElement('h3'); h.textContent = title; section.append(h, ...paragraphs.map(t => para(t))); $('terms').append(section); });
+proposal.sections.forEach(([title, paragraphs]) => { const section = document.createElement('details'); const heading = document.createElement('summary'); heading.textContent = title; section.append(heading, ...paragraphs.map(t => para(t))); $('terms').append(section); });
+['nav-site','nav-tools','nav-summary'].forEach((id,index)=>$(id).addEventListener('click',()=>setStep(index+1)));
+$('tools-next').addEventListener('click',()=>setStep(3));
+$('dock-next').addEventListener('click',event=>{ event.preventDefault(); const destination = $('dock-next').getAttribute('href'); setStep(destination === '#bonus' ? 2 : 3); $(destination.slice(1)).scrollIntoView?.({behavior:'smooth', block:'start'}); });
 renderPackages(); renderBonuses(); renderSummary();
 $('preview').addEventListener('click', () => { const selection = currentSelection(); sheetContent(selection, $('confirm').checked); makePdf($('confirm').checked); $('modal-title').textContent = 'Il riepilogo della scelta.'; $('modal').showModal(); });
 $('confirm').addEventListener('change', () => { if ($('modal').open && selectedPack) { sheetContent(currentSelection(), $('confirm').checked); makePdf($('confirm').checked); } });

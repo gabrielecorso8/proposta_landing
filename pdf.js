@@ -1,18 +1,18 @@
-// One-page PDF matching the proposal's dark visual style.
+// One-page summary matching the proposal's paper and terracotta palette.
 function createPDF(lines){
  const cp={'€':128,'’':146,'‘':145,'“':147,'”':148,'–':45,'—':45};
  const escaped=s=>[...s].map(c=>String.fromCharCode(cp[c]??(c.charCodeAt(0)<=255?c.charCodeAt(0):63))).join('').replace(/[\\()]/g,'\\$&');
- const ops=[];const ink='0.957 0.957 0.941',muted='0.655 0.678 0.702',lime='0.780 1 0.412';
+ const ops=[];const ink='0.125 0.125 0.118',muted='0.396 0.396 0.369',lime='0.725 0.208 0.137';
  function text(t,x,y,size=11,color=ink,bold=false){ops.push(color+' rg',`BT /${bold?'F2':'F1'} ${size} Tf 0 Tc 1 0 0 1 ${x} ${y} Tm (${escaped(t)}) Tj ET`)}
  function rect(x,y,w,h,c){ops.push(c+' rg',`${x} ${y} ${w} ${h} re f`)}
- function rule(y){rect(44,y,507,0.7,'0.204 0.231 0.259')}
+ function rule(y){rect(44,y,507,0.7,'0.808 0.808 0.773')}
  function wrap(t,x,y,size=11,color=muted,width=490){let row='',rows=[];const max=Math.floor(width/(size*.55));for(let word of t.split(/\s+/)){if(row.length+word.length+1>max){rows.push(row);row=word}else row+=(row?' ':'')+word}if(row)rows.push(row);for(let row of rows){text(row,x,y,size,color);y-=size*1.5}return y}
- rect(0,0,595,842,'0.067 0.086 0.106');text('GALLERIA D’ARTE',44,793,9,muted);text('BOZZA DI PROPOSTA',384,793,9,muted);rule(777);
+ rect(0,0,595,842,'0.957 0.953 0.937');text('GALLERIA D’ARTE',44,793,9,muted);text('BOZZA DI PROPOSTA',384,793,9,muted);rule(777);
  text(lines[0].text,44,718,38,ink,true);text(lines[1].text,44,685,10,muted);
  text(lines[2].text.toUpperCase(),44,645,10,lime,true);
- const labels=['01 / OFFERTA','02 / STRUMENTI INCLUSI','03 / STRUMENTI AGGIUNTI'];
+ const labels=['01 / SITO SCELTO','02 / IL PROGETTO','03 / STRUMENTI INCLUSI'];
  [3,4,5].forEach((j,i)=>{const y=610-i*72;text(labels[i],44,y,9,muted);wrap(lines[j].text,44,y-22,11,ink,490);rule(y-57)});
- rect(44,290,507,100,lime);text('TOTALE INDICATIVO',62,362,10,'0.067 0.086 0.106',true);text(lines[6].text,62,321,30,'0.067 0.086 0.106',true);
+ rect(44,290,507,100,lime);text('TOTALE INDICATIVO',62,362,10,'0.957 0.953 0.937',true);text(lines[6].text,62,321,30,'0.957 0.953 0.937',true);
  let y=wrap(lines[7].text,44,267,10);y=wrap(lines[8].text,44,y-8,10);rule(y-10);
  text(lines[9].text.toUpperCase(),44,y-35,10,lime,true);wrap(lines[10].text,44,y-57,10,ink);
  rule(80);wrap(lines[11].text,44,60,9,muted);text('01',535,26,9,muted);
@@ -27,7 +27,7 @@ function optionLines(selection, date, confirmed) {
   {text: 'Data: ' + date + ' (Europe/Rome)'},
   {text: 'Riepilogo del sito proposto'},
   {text: selection.pack.name + ' - ' + money(selection.pack.price)},
-  {text: selection.pack.description},
+  {text: selection.pack.ui?.summary || selection.pack.description},
   {text: included},
   {text: money(selection.total)},
   {text: 'Strumenti aggiunti: ' + added},
