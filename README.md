@@ -1,26 +1,38 @@
 # Proposta sito per galleria d’arte
 
-Bozza di proposta interattiva con tre pacchetti: Sito Base (890 €), Sito Avanzato (990 €), Sito Pro (1.190 €). Riferimento visivo: [FORMA](https://gabrielecorso8.github.io/forma/).
+Bozza interattiva per presentare tre livelli di sito e moduli aggiuntivi, con FORMA come riferimento visivo e primo passaggio prima delle offerte.
 
-Il Base presenta galleria e catalogo; l’Avanzato aggiunge il pannello di controllo; il Pro aggiunge la gestione smart degli appuntamenti e selezioni con indirizzi dedicati per i collezionisti. La pagina descrive una proposta commerciale: non implementa il sito o gli strumenti offerti.
+## Pacchetti
 
-Tre bonus senza sovrapprezzo: scheda opera con QR in tutti i pacchetti, pannello di controllo in Avanzato e Pro, gestione smart degli appuntamenti integrata nel Pro. Nel pannello della galleria si aggiornano collezioni, stato delle opere e, con il Pro, disponibilità di giorni e orari. La sincronizzazione con calendari esterni resta da concordare. Prima della versione definitiva vanno confermati il perimetro iniziale (proposti 25 opere, una lingua, una sede e un ciclo di revisione), calendario, costi esterni, assistenza, modalità di pagamento e trattamento fiscale.
+- Base · 890 €: sito per presentare galleria e opere, senza bonus.
+- Avanzato · 1.090 €: Base con pannello di controllo della galleria incluso.
+- Pro · 1.290 €: Avanzato con gestione smart delle richieste e degli appuntamenti inclusa.
 
-## Pubblicazione
+I prezzi delle offerte appaiono all’interno dell’approfondimento, non nei riquadri chiusi. Il riepilogo mostra il prezzo solo dopo la selezione di un’offerta.
 
-Pagina statica senza dipendenze. Per GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
+## Bonus
 
-Il pulsante di condivisione usa il menu nativo quando il dispositivo supporta gli allegati. Altrimenti scarica il PDF e apre la chat WhatsApp già configurata: l’allegato va inserito manualmente. Il PDF viene generato localmente e riporta pacchetto, importo, bonus inclusi, perimetro proposto, costi separati, data Europe/Rome e stato della richiesta di conferma. Non viene inviato automaticamente.
+- Scheda digitale e QR · 110 €: web app e collegamento configurabile a opera, artista, mostra, contatti o sito. Richiede il pannello.
+- Pannello di controllo · 260 €: aggiungibile al Base; già incluso in Avanzato e Pro.
+- Gestione smart di informazioni e appuntamenti · 290 €: aggiungibile quando il pannello è attivo; già inclusa in Pro.
+
+Un bonus incluso viene segnato come «Già incluso» e non è selezionabile. Il Base può attivare il QR solo aggiungendo prima il pannello. Le disponibilità del Pro si aggiornano nel calendario interno; l’eventuale sincronizzazione esterna va verificata e concordata.
+
+## Perimetro da confermare
+
+La proposta considera fino a 25 opere iniziali, una lingua, una sede e un ciclo di revisione. Testi, fotografie, dominio, hosting e servizi di terze parti restano da definire nel preventivo definitivo.
+
+## Pubblicazione e uso
+
+Pagina statica senza dipendenze. Per GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root). Avviare una preview locale con `python -m http.server 8765` dalla cartella del repository e aprire `http://localhost:8765`.
+
+Il PDF viene generato localmente e riporta offerta, bonus inclusi, bonus aggiunti, totale, data Europe/Rome e stato della richiesta di conferma. Le scelte non vengono inviate a un server.
 
 ## File
 
-- `index.html`: interfaccia
-- `data.js`: testo e prezzi della proposta
-- `app.js`: scelte, riepilogo e condivisione
+- `index.html`: interfaccia e presentazione FORMA
+- `style.css`: stile editoriale responsive
+- `data.js`: descrizioni, prezzi e condizioni
+- `app.js`: selezione pacchetti/bonus, riepilogo e PDF
 - `pdf.js`: generazione PDF locale
-
-Le scelte non vengono inviate a un server.
-
-## Verifica locale
-
-Avviare `python -m http.server 8765` dalla cartella del repository e aprire `http://localhost:8765`. I prezzi dei singoli pacchetti appaiono quando si apre l’offerta; il riepilogo mostra il prezzo del pacchetto selezionato.
+- `assets/forma-preview.png`: anteprima cliccabile del fac simile FORMA

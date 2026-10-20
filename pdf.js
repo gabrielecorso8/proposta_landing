@@ -10,9 +10,9 @@ function createPDF(lines){
  rect(0,0,595,842,'0.067 0.086 0.106');text('GALLERIA D’ARTE',44,793,9,muted);text('BOZZA DI PROPOSTA',384,793,9,muted);rule(777);
  text(lines[0].text,44,718,38,ink,true);text(lines[1].text,44,685,10,muted);
  text(lines[2].text.toUpperCase(),44,645,10,lime,true);
- const labels=['01 / PACCHETTO SITO','02 / OBIETTIVO','03 / BONUS'];
- [3,4,5].forEach((j,i)=>{const y=610-i*72;text(labels[i],44,y,9,muted);wrap(lines[j].text,44,y-22,12,ink,490);rule(y-57)});
- rect(44,290,507,100,lime);text('TOTALE SITO PROPOSTO',62,362,10,'0.067 0.086 0.106',true);text(lines[6].text,62,321,30,'0.067 0.086 0.106',true);
+ const labels=['01 / OFFERTA','02 / BONUS INCLUSI','03 / BONUS AGGIUNTI'];
+ [3,4,5].forEach((j,i)=>{const y=610-i*72;text(labels[i],44,y,9,muted);wrap(lines[j].text,44,y-22,11,ink,490);rule(y-57)});
+ rect(44,290,507,100,lime);text('TOTALE INDICATIVO',62,362,10,'0.067 0.086 0.106',true);text(lines[6].text,62,321,30,'0.067 0.086 0.106',true);
  let y=wrap(lines[7].text,44,267,10);y=wrap(lines[8].text,44,y-8,10);rule(y-10);
  text(lines[9].text.toUpperCase(),44,y-35,10,lime,true);wrap(lines[10].text,44,y-57,10,ink);
  rule(80);wrap(lines[11].text,44,60,9,muted);text('01',535,26,9,muted);
@@ -20,18 +20,20 @@ function createPDF(lines){
  let out='%PDF-1.4\n',offsets=[0];for(let i=1;i<objects.length;i++){offsets[i]=out.length;out+=`${i} 0 obj\n${objects[i]}\nendobj\n`}const start=out.length;out+=`xref\n0 ${objects.length}\n0000000000 65535 f \n`;for(let i=1;i<objects.length;i++)out+=`${String(offsets[i]).padStart(10,'0')} 00000 n \n`;out+=`trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF`;return new Uint8Array([...out].map(c=>c.charCodeAt(0)));
 }
 function optionLines(selection, date, confirmed) {
-  return [
-    {text: 'Proposta galleria'},
-    {text: 'Data: ' + date + ' (Europe/Rome)'},
-    {text: 'Riepilogo del sito proposto'},
-    {text: selection.pack.name + ' - ' + money(selection.pack.price)},
-    {text: selection.pack.description},
-    {text: bonusSummary(selection.index) + ', compresi nell’importo.'},
-    {text: money(selection.total)},
-    {text: 'Perimetro proposto: italiano, una sede, fino a 25 opere iniziali e un ciclo di revisione.'},
-    {text: proposal.externalCosts},
-    {text: confirmed ? 'Richiesta di conferma' : 'Riepilogo senza conferma'},
-    {text: confirmed ? proposal.confirmation : 'Richiesta di conferma non selezionata. Condizioni e avvio da concordare.'},
-    {text: 'Bozza di riepilogo; non costituisce conferma d’ordine o firma digitale.'}
-  ];
+ const included = selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'Nessun bonus incluso';
+ const added = selection.addedBonuses.length ? selection.addedBonuses.map(x => x.title + ' · ' + money(x.price)).join('; ') : 'Nessun bonus aggiunto';
+ return [
+  {text: 'Proposta galleria'},
+  {text: 'Data: ' + date + ' (Europe/Rome)'},
+  {text: 'Riepilogo del sito proposto'},
+  {text: selection.pack.name + ' - ' + money(selection.pack.price)},
+  {text: selection.pack.description},
+  {text: included},
+  {text: money(selection.total)},
+  {text: 'Bonus aggiunti: ' + added},
+  {text: proposal.externalCosts},
+  {text: confirmed ? 'Richiesta di conferma' : 'Riepilogo senza conferma'},
+  {text: confirmed ? proposal.confirmation : 'Richiesta di conferma non selezionata. Condizioni e avvio da concordare.'},
+  {text: 'Bozza di riepilogo; non costituisce conferma d’ordine o firma digitale.'}
+ ];
 }

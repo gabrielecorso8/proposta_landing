@@ -1,79 +1,112 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#11161b"><meta name="description" content="Proposta per il sito di una galleria d’arte: Base 890 €, Avanzato 990 €, Pro 1.190 €. Bonus da definire."><title>Proposta · Galleria d’arte</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2311161b'/%3E%3Ctext x='8' y='24' font-size='24' fill='%23c7ff69'%3EP%3C/text%3E%3C/svg%3E"><style>
-:root{font:16px/1.6 Arial,sans-serif;color:#f4f4f0;background:#11161b;--muted:#a7adb3;--line:#343b42;--lime:#c7ff69}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}main{max-width:1200px;margin:auto;padding:38px 32px 70px}.masthead{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}header{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;padding:44px 0 40px}h1{font-size:clamp(3rem,7vw,5.4rem);letter-spacing:-.065em;font-weight:500;line-height:1;margin:0}header p{color:#c4c9cc;margin:0 0 12px;max-width:62ch;font-size:.95rem}.section{padding:32px 0;border-top:1px solid var(--line)}.section-head{display:flex;gap:18px;align-items:baseline;margin-bottom:22px}.number{color:var(--lime);font-size:.85rem}h2{font-size:1.5rem;letter-spacing:-.025em;font-weight:500;margin:0}.section-head p{margin:0 0 0 auto;color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tile{display:flex;flex-direction:column;position:relative;padding:22px;border:1px solid var(--line);border-radius:4px;background:#192027;cursor:pointer;transition:border-color .15s,background .15s;min-width:0}.tile:hover{border-color:#8c999f}.tile:has(input:checked){border-color:var(--lime);background:#212b25}.tile input{position:absolute;right:20px;top:24px;width:18px;height:18px;accent-color:var(--lime)}.tile .tag{font-size:.76rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}.tile h3{font-size:1.2rem;line-height:1.3;font-weight:500;margin:0 20px 12px 0;letter-spacing:-.02em}.tile p{font-size:.93rem;color:#c4c9cc;margin:0 0 20px}.tile .cost{font-size:1.8rem;font-weight:500;letter-spacing:-.03em;margin-top:auto}.tile .cost small{font-size:.9rem;letter-spacing:0;color:var(--muted)}.tile .tradeoff{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:#aeb9c0}.tile:has(input:checked) .tag{color:var(--lime)}.details{margin-top:20px;color:#c4c9cc}.details summary{cursor:pointer;color:#f4f4f0;font-size:.9rem}.details .detailbody{max-width:82ch;padding-top:12px}.detailbody p{margin:10px 0}.detailbody ul{padding-left:22px}.two{grid-template-columns:1fr 1fr}.note{color:var(--muted);font-size:.88rem;margin-top:18px;max-width:78ch}.terms{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:8px}.terms details{border-top:1px solid var(--line);padding:18px 0}.terms summary{cursor:pointer}.terms p{font-size:.93rem;color:#bdc5cb}.checkout{background:#e9ece4;color:#142019;padding:32px;margin-top:28px;border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:36px}.checkout h2{font-size:1.8rem;margin-bottom:20px}.row{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid #cbd1c7;font-size:.93rem}.sum{display:flex;justify-content:space-between;align-items:baseline;margin-top:20px}.sum output{font-size:2.6rem;font-weight:500;letter-spacing:-.05em}.checkout .note{color:#58655b}.check{display:flex;gap:12px;font-size:.9rem;line-height:1.5;margin-top:8px}.check input{width:18px;height:18px;flex-shrink:0;margin-top:3px;accent-color:#193c28}.button{display:inline-flex;justify-content:center;align-items:center;font-size:.95rem;border:0;background:#173b29;color:white;padding:14px 22px;border-radius:3px}.checkout .button{width:100%;margin-top:24px}.status{font-size:.9rem;min-height:1.5em}dialog{width:min(880px,96vw);max-height:94vh;background:#f7f8f3;color:#192a21;border:0;border-radius:6px;padding:24px}dialog::backdrop{background:#070e15c9}.dialogtop{display:flex;justify-content:space-between;align-items:center;gap:20px}.close{border:1px solid #c8d1c7;padding:8px 14px;background:transparent;color:#192a21;cursor:pointer}.preview-sheet{background:white;border:1px solid #d4dbd0;padding:30px;margin:22px 0}.preview-sheet h3{font-size:1.6rem;font-weight:500;margin:0 0 16px}.preview-sheet p{font-size:.9rem}.preview-sheet .total{font-size:1.6rem}.actions{display:flex;gap:10px;flex-wrap:wrap}.actions .close{padding:14px 22px}iframe{display:block;width:100%;height:45vh;border:1px solid #d4dbd0;margin-top:15px}.pdfdetails{margin:20px 0}footer{font-size:.8rem;color:var(--muted);margin-top:30px}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #8ddd4a;outline-offset:5px}@media(max-width:850px){header{grid-template-columns:1fr;gap:22px}.grid{grid-template-columns:1fr}.tile{padding:22px;min-height:0}.tile .tag{margin-bottom:10px}.tile p{margin-bottom:12px}.tile .cost{font-size:1.5rem}.section-head{flex-wrap:wrap;gap:10px}.section-head p{margin:0;width:100%;padding-left:28px}.checkout{grid-template-columns:1fr;gap:22px}.terms{grid-template-columns:1fr}}@media(max-width:500px){main{padding:22px 18px 40px}header{padding:30px 0}h1{font-size:3.4rem}.checkout{padding:22px}.masthead{font-size:.7rem}.section{padding:25px 0}.preview-sheet{padding:20px}dialog{padding:18px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-#packs{display:flex;flex-direction:column;gap:18px}.offer{background:#192027;border:1px solid var(--line);border-radius:4px;padding:26px}.offer:has(input:checked){border-color:var(--lime)}.offer-top{display:flex;align-items:baseline;gap:20px;justify-content:space-between}.offer h3{font-size:1.4rem;letter-spacing:-.025em;font-weight:500;margin:0}.offer .cost{font-size:1.5rem;white-space:nowrap;color:var(--lime)}.offer>p{color:#c4c9cc;max-width:75ch}.offer details{margin-top:18px}.offer summary{cursor:pointer;display:inline-block;padding:9px 15px;border:1px solid #738087;border-radius:3px;font-size:.9rem}.offer details[open] summary{margin-bottom:12px}.offer .detailbody{max-width:80ch;color:#c4c9cc}.select-offer{display:flex;gap:12px;align-items:center;background:#26392d;border:1px solid #547944;padding:14px 18px;margin-top:22px;cursor:pointer;color:#f5fff0}.select-offer input{width:19px;height:19px;accent-color:var(--lime)}.terms{display:block}.terms details{padding:18px 0}@media(max-width:500px){.offer{padding:20px}.offer-top{align-items:flex-start;flex-direction:column;gap:6px}.offer h3{font-size:1.25rem}}
-.select-offer .cost{margin-left:auto;font-size:1.25rem;white-space:nowrap}@media(max-width:500px){.select-offer{flex-wrap:wrap}.select-offer .cost{margin-left:31px;width:100%}}dialog{background:#11161b;color:#f4f4f0}.dialogtop .close,.actions .close{color:#f4f4f0;border-color:#52606b}.preview-sheet{background:#192027;color:#f4f4f0;border-color:#343b42;padding:32px}.preview-sheet h3{font-size:2.4rem;letter-spacing:-.05em}.preview-sheet .row{border-color:#343b42;padding:18px 0}.preview-sheet .row strong{font-weight:500}.preview-sheet .row:last-of-type{background:#c7ff69;color:#11161b;padding:20px;margin:22px 0;font-size:1.25rem}.preview-sheet>p{color:#a7adb3}.actions .button{background:#c7ff69;color:#11161b}iframe{border-color:#343b42}@media(max-width:500px){.preview-sheet{padding:22px}.preview-sheet .row{flex-direction:column;gap:5px}}
-/* Landing offers: structured reading without changing the proposal copy. */
-#packs .offer{padding:30px}
-#packs .offer>p{margin:12px 0 0;max-width:68ch}
-#packs .offer summary{padding:10px 16px}
-#packs .offer-body{max-width:none;padding-top:20px}
-#packs .offer-blocks{display:grid;gap:24px}
-#packs .offer-blocks-0{grid-template-columns:1fr 1fr}
-#packs .offer-blocks-2{grid-template-columns:repeat(3,1fr);gap:28px}
-#packs h4{margin:0 0 10px;font-size:.9rem;line-height:1.4;font-weight:600;color:#f4f4f0}
-#packs .offer-block p{margin:0;font-size:.94rem;line-height:1.7}
-#packs .offer-blocks-2 .offer-block{border-top:2px solid #526151;padding-top:16px}
-#packs .offer-features{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;list-style:none;padding:0;margin:18px 0 0}
-#packs .offer-features li{position:relative;padding:15px 10px 15px 22px;border-top:1px solid var(--line);font-size:.94rem;line-height:1.5}
-#packs .offer-features li::before{content:"";position:absolute;left:0;top:24px;width:5px;height:5px;border-radius:50%;background:var(--lime)}
-#packs .offer-model{margin:22px 0 0;padding:16px 18px;border-left:2px solid #697780;background:#151b21;color:#aeb8be;font-size:.88rem;line-height:1.6}
-#packs .offer-tradeoffs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
-#packs .offer-tradeoff p{margin:0;font-size:.92rem;line-height:1.65}
-#packs .offer-benefit h4{color:var(--lime)}
-#packs .offer-limit h4{color:#adb8c1}
-#packs .select-offer{margin-top:26px;border-radius:3px}
-@media(max-width:760px){#packs .offer-blocks-2{grid-template-columns:1fr;gap:20px}#packs .offer-blocks-2 .offer-block{padding-top:12px}}
-@media(max-width:560px){#packs .offer{padding:22px}#packs .offer-blocks-0,#packs .offer-features,#packs .offer-tradeoffs{grid-template-columns:1fr}#packs .offer-blocks{gap:22px}#packs .offer-tradeoffs{gap:20px}#packs .offer-features li{padding-right:0}}
-
-/* Art gallery proposal: preserve the original visual language. */
-a{color:var(--lime);text-underline-offset:4px}
-.skip{position:absolute;left:20px;top:-100px;background:var(--lime);color:#11161b;padding:10px;z-index:2}.skip:focus{top:10px}
-.draft{color:var(--lime);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px}
-.demo-link{display:inline-block;margin-top:6px}
-#packs .offer-tag{color:var(--lime);text-transform:uppercase;font-size:.75rem;letter-spacing:.1em;margin:0 0 8px}
-#packs .offer-blocks-1{grid-template-columns:1fr 1fr}
-#packs .select-offer{margin-top:20px}
-.bonus{cursor:default}.bonus:hover{border-color:var(--line)}.bonus h3{margin-right:0}
-.bonus .tradeoff{margin-top:auto}
-.section-head{flex-wrap:wrap}
-.checkout .row:last-child strong{font-weight:400}
-.preview-sheet .row:last-of-type{background:var(--lime);color:#11161b}
-.preview-sheet .row:last-of-type~p{font-size:.85rem}
-.comparison-note{margin:0 0 20px;color:var(--muted);font-size:.9rem}
-#packs .offer-price{display:block;margin-top:24px;padding:18px 20px;border-left:2px solid var(--lime);background:#151b21;color:var(--lime);font-size:1.45rem;font-weight:500}
-#packs .offer-top .cost{display:none}
-body:has(dialog[open]){overflow:hidden}
-dialog{width:min(880px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
-@media(max-width:560px){#packs .offer-blocks-1{grid-template-columns:1fr}.masthead{gap:18px}.masthead span:last-child{text-align:right}.dialogtop{gap:12px}.dialogtop h2{font-size:1.2rem;line-height:1.3}.preview-sheet h3{font-size:1.65rem;line-height:1.2}.dialogtop .close{flex-shrink:0}}
-
-</style></head><body>
-<a class="skip" href="#main">Vai al contenuto</a>
-<main id="main">
-  <div class="masthead"><span>Galleria d’arte</span><span>Proposta sito web</span></div>
-  <header>
-    <div><p class="draft">Bozza di proposta · Bonus da definire</p><h1>Le opere,<br>al centro.</h1></div>
-    <div><div id="intro"></div><a class="demo-link" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">Esplora il fac simile FORMA ↗</a><p class="note">Riferimento per stile e navigazione. Contenuti dimostrativi; le funzioni comprese dipendono dal pacchetto scelto.</p></div>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="Tre proposte per il sito di una galleria d’arte, ispirate al fac simile FORMA.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Una proposta per la galleria</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23bd3521'/%3E%3Ctext x='11' y='31' font-family='Arial' font-size='30' fill='white'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <header class="masthead">
+    <a class="wordmark" href="#inizio" aria-label="Inizio proposta">G<span>/</span></a>
+    <span class="masthead-label">Galleria d’arte <span>·</span> Proposta digitale</span>
+    <a class="masthead-link" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">Visita FORMA <span aria-hidden="true">↗</span></a>
   </header>
-  <section class="section" aria-labelledby="packages-title">
-    <div class="section-head"><span class="number">01</span><h2 id="packages-title">Il sito per la galleria</h2><p>Tre modi di presentare e gestire le opere.</p></div>
-    <p class="comparison-note">Base: presenza online · Avanzato: gestione autonoma · Pro: selezioni per i collezionisti.</p>
-    <div id="packs" role="group" aria-label="Scegli il pacchetto sito"></div>
-  </section>
-  <section class="section" aria-labelledby="bonus-title">
-    <div class="section-head"><span class="number">02</span><h2 id="bonus-title">Tre bonus inclusi</h2><p>Già compresi nel pacchetto.</p></div>
-    <p class="note">La scheda opera con QR è compresa in tutti i pacchetti. Il pannello di controllo è incluso in Avanzato e Pro; nel Pro collega anche le richieste di appuntamento e aggiorna le disponibilità dal calendario interno.</p>
-    <div class="grid" id="bonuses"></div>
-  </section>
-  <section class="section" aria-labelledby="terms-title">
-    <div class="section-head"><span class="number">03</span><h2 id="terms-title">Prima di iniziare</h2><p>Il perimetro da confermare.</p></div>
-    <div class="terms" id="terms"></div>
-  </section>
-  <section class="checkout" aria-labelledby="checkout-title">
-    <div><h2 id="checkout-title">La vostra scelta</h2><div id="summary"></div><p id="selectedDescription" class="note"></p><div class="sum"><span>Totale sito proposto</span><output id="total" aria-live="polite"></output></div><p class="note">Bonus da definire, esclusi dal totale.</p><p class="note" id="externalCosts"></p></div>
-    <div><label class="check"><input type="checkbox" id="confirm"><span id="confirmationText"></span></label><button class="button" id="preview">Anteprima e PDF della scelta</button><p class="note">Riepilogo con pacchetto, importo e data. Potete scaricarlo o condividerlo per proseguire il confronto.</p><p class="status" id="status" role="status"></p></div>
-  </section>
-  <footer>Proposta per galleria d’arte · Bozza da finalizzare</footer>
-</main>
-<dialog id="modal" aria-labelledby="modal-title"><div class="dialogtop"><h2 id="modal-title">Il documento da condividere</h2><button class="close" id="close">Chiudi</button></div><div class="preview-sheet" id="sheet"></div><details class="pdfdetails"><summary>Visualizza il PDF</summary><iframe id="pdfView" title="PDF del pacchetto selezionato"></iframe></details><div class="actions"><button class="button" id="share">Condividi PDF · WhatsApp</button><button class="close" id="download">Scarica PDF</button></div><p class="note">Se il dispositivo supporta la condivisione di file, scegliete WhatsApp e la chat con Gabriele (+39 345 048 7680). Altrimenti il PDF viene scaricato e si apre la chat: allegatelo manualmente.</p><p class="status" id="shareStatus" role="status"></p></dialog>
-<script src="data.js"></script><script src="pdf.js"></script><script src="app.js"></script>
-</body></html>
+
+  <main id="main">
+    <section class="reference container" id="inizio" aria-labelledby="reference-title">
+      <div class="reference-copy">
+        <p class="eyebrow"><span>01</span> Fac simile interattivo</p>
+        <div class="reference-intro">
+          <h1 id="reference-title">Prima, una visita.</h1>
+          <p>FORMA è il punto di partenza visivo della proposta: uno spazio editoriale in cui le opere hanno respiro e il contatto con la galleria è a portata di mano.</p>
+        </div>
+      </div>
+      <figure class="reference-figure">
+        <a class="reference-image-link" href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer" aria-label="Apri e naviga il fac simile interattivo FORMA in una nuova scheda">
+          <img src="assets/forma-preview.png" alt="Anteprima di FORMA: collage di opere, catalogo e collegamenti alle sezioni della galleria" width="1280" height="720">
+          <span class="image-cta">Apri e naviga il fac simile <span aria-hidden="true">↗</span></span>
+        </a>
+        <figcaption><span>FORMA <span class="caption-slash">/</span> Un esempio di direzione visiva</span><a href="https://gabrielecorso8.github.io/forma/" target="_blank" rel="noopener noreferrer">Vai al sito interattivo <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <a class="continue-link" href="#proposte">Ora, le tre proposte <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="offers-section container" id="proposte" aria-labelledby="offers-title">
+      <div class="section-heading">
+        <p class="eyebrow"><span>02</span> Il sito della galleria</p>
+        <div class="heading-row">
+          <h2 id="offers-title">Scegli il tuo<br>punto di partenza.</h2>
+          <p class="section-intro">Tre livelli di autonomia e relazione con i collezionisti. Apri un’offerta per leggerne i dettagli e vedere l’investimento.</p>
+        </div>
+      </div>
+      <div class="packages" id="packages" role="group" aria-label="Scegli un pacchetto per il sito"></div>
+    </section>
+
+    <section class="bonuses-section" id="bonus" aria-labelledby="bonuses-title">
+      <div class="container">
+        <div class="section-heading bonus-heading">
+          <p class="eyebrow"><span>03</span> Moduli aggiuntivi</p>
+          <div class="heading-row">
+            <h2 id="bonuses-title">Solo ciò che<br>serve alla galleria.</h2>
+            <p class="section-intro">I bonus inclusi non si pagano di nuovo. Gli altri si aggiungono all’offerta scelta; alcune funzioni richiedono il pannello.</p>
+          </div>
+        </div>
+        <div class="bonus-grid" id="bonuses"></div>
+      </div>
+    </section>
+
+    <section class="terms-section container" aria-labelledby="terms-title">
+      <div class="section-heading">
+        <p class="eyebrow"><span>04</span> Dal progetto alla consegna</p>
+        <div class="heading-row">
+          <h2 id="terms-title">Prima di iniziare.</h2>
+          <p class="section-intro">Un perimetro chiaro, i materiali della galleria e un calendario condiviso.</p>
+        </div>
+      </div>
+      <div class="terms-list" id="terms"></div>
+    </section>
+
+    <section class="checkout container" aria-labelledby="checkout-title">
+      <div class="checkout-left">
+        <p class="eyebrow"><span>05</span> La configurazione scelta</p>
+        <h2 id="checkout-title">Una proposta<br>su misura.</h2>
+        <p class="checkout-intro">Il riepilogo si aggiorna con il pacchetto e i bonus che hai scelto.</p>
+        <div id="summary" class="summary-list" aria-live="polite"></div>
+        <div class="total-row"><span>Totale indicativo</span><output id="total" aria-live="polite">Scegli un’offerta</output></div>
+        <p class="external-costs" id="externalCosts"></p>
+      </div>
+      <div class="checkout-right">
+        <label class="confirmation"><input type="checkbox" id="confirm"><span id="confirmationText"></span></label>
+        <button class="button button-dark" id="preview" type="button" disabled>Prepara il riepilogo <span aria-hidden="true">↗</span></button>
+        <p class="checkout-caption">Puoi vedere, scaricare o condividere un PDF con la selezione e la data.</p>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <a class="footer-wordmark" href="#inizio">G<span>/</span></a>
+    <p>Una proposta costruita intorno alle opere e al modo in cui la galleria vuole incontrare il proprio pubblico.</p>
+    <a href="#inizio">Torna all’inizio ↑</a>
+  </footer>
+
+  <dialog id="modal" aria-labelledby="modal-title">
+    <div class="dialog-top"><p class="eyebrow">Proposta · Galleria d’arte</p><button class="close" id="close" type="button" aria-label="Chiudi">Chiudi <span aria-hidden="true">×</span></button></div>
+    <h2 id="modal-title">Il riepilogo della scelta.</h2>
+    <div class="preview-sheet" id="sheet"></div>
+    <details class="pdf-details"><summary>Anteprima del PDF</summary><iframe id="pdfView" title="Anteprima PDF della proposta"></iframe></details>
+    <div class="actions"><button class="button button-accent" id="share" type="button">Condividi il PDF <span aria-hidden="true">↗</span></button><button class="button button-outline" id="download" type="button">Scarica il PDF <span aria-hidden="true">↓</span></button></div>
+    <p class="dialog-note">Se condividi il PDF con WhatsApp, scegli la chat con Gabriele. Se il dispositivo scarica il file, allegalo alla chat.</p>
+    <p class="status" id="shareStatus" role="status" aria-live="polite"></p>
+  </dialog>
+  <script src="data.js"></script>
+  <script src="pdf.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
