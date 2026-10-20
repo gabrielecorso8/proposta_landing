@@ -26,7 +26,7 @@ function optionLines(selection, date, confirmed) {
     {text: 'Riepilogo del sito proposto'},
     {text: selection.pack.name + ' - ' + money(selection.pack.price)},
     {text: selection.pack.description},
-    {text: 'Da definire. Non inclusi nel pacchetto e nel totale.'},
+    {text: bonusSummary(selection.index) + ', compresi nell’importo.'},
     {text: money(selection.total)},
     {text: 'Perimetro proposto: italiano, una sede, fino a 25 opere iniziali e un ciclo di revisione.'},
     {text: proposal.externalCosts},

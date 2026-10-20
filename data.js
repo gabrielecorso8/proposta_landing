@@ -1,7 +1,7 @@
 const proposal = {
   intro: [
     'Un sito che dia spazio alle opere e renda semplice il primo contatto con la galleria. Un catalogo curato, immagini da osservare e un percorso chiaro per chiedere informazioni o fissare una visita.',
-    'Tre pacchetti, con la stessa cura per la presentazione: cambia il modo in cui aggiornate il catalogo e condividete le opere con i collezionisti. Gli importi riguardano il sito; i bonus sono ancora da definire.'
+    'Tre pacchetti con strumenti inclusi per presentare le opere, gestire la galleria e accompagnare le richieste dei collezionisti. Approfondisci ciascuna offerta per vedere cosa comprende e il relativo investimento.'
   ],
   confirmation: 'Ho letto il riepilogo e richiedo la conferma del perimetro e delle condizioni prima dell’avvio dei lavori.',
   externalCosts: 'Dominio, hosting ed eventuali servizi a pagamento separati. Trattamento fiscale da specificare nel preventivo definitivo.',
@@ -13,40 +13,41 @@ const proposal = {
         {title: 'La galleria e le opere', text: 'Realizzazione del sito sulla direzione visiva del fac simile FORMA, adattata all’identità della galleria. Presentazione, catalogo, schede opera e contatti, con una navigazione adatta a telefono e computer.'},
         {title: 'Un contatto più semplice', text: 'Ogni scheda presenta immagini, autore, tecnica e dimensioni. Il visitatore può osservare l’opera, filtrare il catalogo e aprire una richiesta di informazioni con il riferimento all’opera già compilato.'}
       ],
-      items: ['Impostazione grafica personalizzata su base FORMA.', 'Catalogo iniziale e schede delle opere concordate.', 'Vista ingrandita delle opere e filtri per categoria.', 'Selezione dei preferiti salvata sul dispositivo.', 'Contatti via email o WhatsApp e richiesta di visita.', 'Ottimizzazione delle immagini, titoli e descrizioni per i motori di ricerca.'],
+      items: ['Impostazione grafica personalizzata su base FORMA.', 'Catalogo iniziale e schede delle opere concordate.', 'Vista ingrandita delle opere e filtri per categoria.', 'Selezione dei preferiti salvata sul dispositivo.', 'Contatti via email o WhatsApp e richiesta di visita.', 'Bonus incluso: scheda digitale dell’opera con QR code dedicato.', 'Ottimizzazione delle immagini, titoli e descrizioni per i motori di ricerca.'],
       benefit: 'Una presenza online curata che aiuta a passare dall’interesse per un’opera a una conversazione con la galleria.',
       limit: 'Il catalogo viene aggiornato con il mio intervento. I lavori successivi alla consegna si concordano separatamente.'
     },
     {
       name: 'Sito Avanzato', price: 990, tag: 'Gestione autonoma',
-      description: 'Tutto il Base, con un pannello riservato per tenere il catalogo aggiornato in autonomia.',
+      description: 'Tutto il Base, con un pannello di controllo per aggiornare collezioni, opere e disponibilità.',
       blocks: [
-        {title: 'Il catalogo nelle vostre mani', text: 'Un pannello con accesso riservato permette alla galleria di gestire le schede delle opere. Le modifiche seguono il modello grafico concordato, senza dover intervenire sul codice.'},
-        {title: 'Aggiornamenti quotidiani', text: 'Potete caricare e sostituire immagini, modificare dati e descrizioni, riordinare le opere e indicare se sono disponibili, riservate o vendute. Alla consegna facciamo una prova insieme e ricevete una guida essenziale.'}
+        {title: 'Il pannello della galleria', text: 'Un accesso riservato permette di aggiornare le collezioni e il catalogo, caricare immagini e modificare i dati delle opere senza intervenire sul codice.'},
+        {title: 'Stato delle opere', text: 'Potete riordinare le opere e indicare se sono disponibili, riservate o vendute. Il QR della scheda porta alla pagina aggiornata dell’opera. Alla consegna facciamo una prova insieme e ricevete una guida essenziale.'}
       ],
-      items: ['Tutte le funzioni del Sito Base.', 'Accesso riservato per la gestione del catalogo.', 'Aggiunta, modifica e rimozione delle opere.', 'Gestione di immagini, autore, tecnica, dimensioni e descrizione.', 'Categorie, ordine di visualizzazione e stato dell’opera.', 'Sessione di consegna e istruzioni per gli aggiornamenti.'],
-      after: 'L’autonomia riguarda il catalogo e i campi concordati. Nuove sezioni, nuovi layout o funzioni aggiuntive si valutano a parte.',
+      items: ['Tutte le funzioni del Sito Base, compresa la scheda opera con QR.', 'Pannello di controllo con accesso riservato.', 'Creazione e aggiornamento delle collezioni.', 'Aggiunta, modifica e rimozione delle opere.', 'Gestione di immagini, autore, tecnica, dimensioni e descrizione.', 'Aggiornamento dello stato: disponibile, riservata o venduta.', 'Sessione di consegna e istruzioni per gli aggiornamenti.'],
+      after: 'Il pannello usa i campi e i modelli concordati e mostra sempre lo stato aggiornato delle opere. Il collegamento con la gestione smart di informazioni e appuntamenti è compreso nel pacchetto Pro.',
       benefit: 'Il sito segue la vita della galleria: nuove acquisizioni e disponibilità possono essere aggiornate senza richiedere ogni volta un intervento.',
       limit: 'Il pannello gestisce i contenuti previsti; non è un editor libero del sito né un gestionale amministrativo.'
     },
     {
       name: 'Sito Pro', price: 1190, tag: 'Relazione con i collezionisti',
-      description: 'Tutto l’Avanzato, con selezioni di opere dedicate da condividere con un collezionista.',
+      description: 'Tutto l’Avanzato, con gestione smart degli appuntamenti e selezioni per i collezionisti.',
       blocks: [
         {title: 'Selezioni su misura', text: 'Dal catalogo potete preparare una selezione per un collezionista, un ambiente o un tema. Scegliete le opere, l’ordine e un testo introduttivo, riutilizzando le schede già presenti.'},
         {title: 'Un link dedicato', text: 'Ogni selezione mantiene un indirizzo da inviare via email o WhatsApp. Il destinatario ritrova una presentazione coerente con la conversazione avuta con la galleria.'},
-        {title: 'Una richiesta contestuale', text: 'Dalla selezione il collezionista può aprire una richiesta con i riferimenti alle opere. La galleria riceve una base più chiara per rispondere, fissare una visita o proseguire la trattativa.'}
+        {title: 'Informazioni e appuntamenti', text: 'Le richieste arrivano con il riferimento alle opere e alla selezione. Il collezionista consulta i giorni e gli orari disponibili e invia una richiesta per uno slot libero.'},
+        {title: 'Un unico pannello', text: 'La galleria aggiorna le collezioni, indica se un’opera è venduta e gestisce giorni, orari e slot. Quando la galleria conferma o annulla una visita, la disponibilità si aggiorna automaticamente.'}
       ],
-      items: ['Tutte le funzioni del Sito Avanzato.', 'Creazione, modifica e rimozione delle selezioni.', 'Titolo, introduzione e ordine delle opere personalizzabili.', 'Indirizzo dedicato per ogni selezione.', 'Richiesta di informazioni riferita alla selezione.', 'Riutilizzo del catalogo senza duplicare le schede.'],
-      after: 'Le selezioni sono accessibili a chi possiede il link, non protette da un accesso personale. Il perimetro proposto non include CRM, pagamenti online o automazioni commerciali.',
+      items: ['Tutte le funzioni del Sito Avanzato.', 'Tutti e tre i bonus inclusi, senza sovrapprezzo.', 'Gestione smart di richieste di informazioni e appuntamenti.', 'Impostazione dei giorni, degli orari e degli slot disponibili.', 'Aggiornamento automatico delle disponibilità dopo conferma o annullamento.', 'Creazione, modifica e rimozione delle selezioni per collezionisti.', 'Indirizzo dedicato per ogni selezione e richiesta contestuale.'],
+      after: 'La galleria controlla le disponibilità dal pannello; un appuntamento confermato o annullato aggiorna gli slot pubblicati. Il calendario interno è compreso; la sincronizzazione con un calendario esterno si verifica e concorda prima dell’avvio.',
       benefit: 'Dopo una visita o una conversazione potete inviare una proposta curata e pertinente, con un percorso semplice per riprendere il contatto.',
       limit: 'È uno strumento di presentazione e relazione. La trattativa e la vendita rimangono gestite dalla galleria.'
     }
   ],
   bonuses: [
-    {title: 'Scheda opera e QR', tag: 'Dalla visita al contatto', text: 'Una scheda sintetica da condividere e un QR che porta all’opera sul sito: utile in galleria, in fiera e nelle conversazioni con gli interessati.', scope: 'Da definire: modello, dati mostrati e formato di esportazione.'},
-    {title: 'Preferenze del collezionista', tag: 'Richieste più pertinenti', text: 'Un breve percorso su stile, fascia di budget e destinazione dell’opera, da allegare alla richiesta per aiutare la galleria a proporre una selezione mirata.', scope: 'Da definire: domande, recapito della richiesta e gestione dei dati.'},
-    {title: 'Promemoria di ricontatto', tag: 'Dall’interesse alla trattativa', text: 'Un registro essenziale per annotare collezionista, opere di interesse, ultimo contatto e prossima azione. Può partire da un foglio condiviso con modelli di messaggio.', scope: 'Da definire: formato e flusso operativo; nessun invio automatico previsto.'}
+    {title: 'Scheda opera e QR', tag: 'Incluso in tutti i pacchetti', text: 'Ogni opera ha una scheda digitale e un QR dedicato da mostrare in galleria o in fiera. Il codice apre la pagina aggiornata dell’opera sul sito.', scope: 'Base, Avanzato e Pro.'},
+    {title: 'Gestione smart di informazioni e appuntamenti', tag: 'Incluso nel pacchetto Pro', text: 'Le richieste indicano opera e disponibilità. I visitatori consultano giorni, orari e slot liberi; quando la galleria conferma o annulla una visita, il calendario si aggiorna automaticamente.', scope: 'Nel pannello si configurano giorni, orari e slot. Il calendario interno è compreso; il collegamento a calendari esterni va definito.'},
+    {title: 'Pannello di controllo della galleria', tag: 'Avanzato e Pro', text: 'Uno spazio riservato per aggiornare collezioni, schede e stato delle opere, contrassegnando quelle disponibili, riservate o vendute. Nel pacchetto Pro il pannello controlla anche gli slot per appuntamenti.', scope: 'Avanzato e Pro; gestione degli appuntamenti integrata nel Pro.'}
   ],
   sections: [
     ['Perimetro proposto', [
@@ -63,9 +64,9 @@ const proposal = {
       'Dominio, hosting, spazio di archiviazione ed eventuali servizi esterni a pagamento restano separati. Prima di attivarli concordiamo intestazione, costi ricorrenti e limiti dei servizi scelti.',
       'Alla consegna ricevete codice, accessi e istruzioni. Sono proposti 30 giorni di assistenza per correggere difetti delle funzioni concordate; nuovi contenuti, manutenzione continuativa e nuove funzioni si valutano a parte.'
     ]],
-    ['Bonus da concordare', [
-      'Le tre idee sono proposte di lavoro: non sono ancora incluse in alcun pacchetto e non modificano il totale. Sceglieremo insieme quali offrire, con quale perimetro e in quali pacchetti.',
-      'L’obiettivo è facilitare presentazione, contatto e seguito della trattativa. Nessuno strumento implica una garanzia di vendita o l’accesso a una rete di collezionisti.'
+    ['Bonus inclusi e collegamenti', [
+      'La scheda digitale con QR è inclusa in tutti i pacchetti. Il pannello di controllo è incluso in Avanzato e Pro; la gestione smart degli appuntamenti e la relativa integrazione nel pannello sono incluse nel Pro. I bonus non hanno un sovrapprezzo rispetto all’importo del pacchetto.',
+      'Il calendario esterno, i servizi di terze parti e i relativi costi si definiscono dopo aver verificato quali strumenti utilizza la galleria e quale collegamento è possibile realizzare.'
     ]]
   ]
 };

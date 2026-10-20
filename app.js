@@ -21,6 +21,9 @@ function row(label, value) {
 proposal.intro.forEach(text => $('intro').append(para(text)));
 $('confirmationText').textContent = proposal.confirmation;
 $('externalCosts').textContent = proposal.externalCosts;
+function bonusSummary(index) {
+  return index === 0 ? 'Scheda opera + QR inclusi' : index === 1 ? 'QR + pannello inclusi' : 'Tutti e tre i bonus inclusi';
+}
 
 proposal.packs.forEach((pack, index) => {
   const offer = document.createElement('article');
@@ -34,9 +37,9 @@ proposal.packs.forEach((pack, index) => {
   heading.textContent = pack.name;
   offer.setAttribute('aria-labelledby', heading.id);
   const price = document.createElement('span');
-  price.className = 'cost';
-  price.textContent = money(pack.price);
-  top.append(heading, price);
+  price.className = 'offer-price';
+  price.textContent = 'Investimento: ' + money(pack.price);
+  top.append(heading);
   offer.append(tag, top, para(pack.description));
 
   const details = document.createElement('details');
@@ -80,7 +83,7 @@ proposal.packs.forEach((pack, index) => {
     tradeoffs.append(block);
   });
   body.append(tradeoffs);
-  details.append(body);
+  details.append(body, price);
   details.addEventListener('toggle', () => {
     summary.textContent = details.open ? 'Nascondi i dettagli' : 'Mostra cosa comprende';
   });
@@ -126,7 +129,8 @@ function state() {
 }
 function update() {
   const {pack, total} = state();
-  $('summary').replaceChildren(row(pack.name, money(pack.price)), row('Bonus', 'Da definire · esclusi'));
+  const index = Number(document.querySelector('input[name="package"]:checked').value);
+  $('summary').replaceChildren(row(pack.name, money(pack.price)), row('Bonus inclusi', bonusSummary(index)));
   $('total').textContent = money(total);
   $('selectedDescription').textContent = pack.description;
   $('confirm').checked = false;
@@ -156,7 +160,7 @@ $('preview').addEventListener('click', () => {
   $('pdfView').src = url;
   const heading = document.createElement('h3');
   heading.textContent = 'Proposta · Galleria d’arte';
-  $('sheet').replaceChildren(heading, para('Bozza · ' + date + ' · Europe/Rome'), row(selection.pack.name, money(selection.pack.price)), para(selection.pack.description), row('Bonus', 'Da definire · esclusi'), row('Totale sito proposto', money(selection.total)), para('Perimetro proposto: italiano, una sede, fino a 25 opere iniziali e un ciclo di revisione.'), para(proposal.externalCosts), para(confirmed ? proposal.confirmation : 'Riepilogo delle scelte. Richiesta di conferma non selezionata.'));
+  $('sheet').replaceChildren(heading, para('Bozza · ' + date + ' · Europe/Rome'), row(selection.pack.name, money(selection.pack.price)), para(selection.pack.description), row('Bonus inclusi', bonusSummary(selection.index)), row('Totale sito proposto', money(selection.total)), para('Perimetro proposto: italiano, una sede, fino a 25 opere iniziali e un ciclo di revisione.'), para(proposal.externalCosts), para(confirmed ? proposal.confirmation : 'Riepilogo delle scelte. Richiesta di conferma non selezionata.'));
   $('shareStatus').textContent = '';
   $('modal').showModal();
 });
