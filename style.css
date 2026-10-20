@@ -59,7 +59,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
 .reference-copy > .eyebrow { padding-top: 9px; }
 .reference-intro { display: grid; grid-template-columns: 1fr .83fr; align-items: end; gap: 28px; }
 .reference h1 { font-size: clamp(48px, 7vw, 94px); line-height: .97; }
-.reference-intro > p { max-width: 39ch; padding-bottom: 5px; color: var(--muted); font-size: 15px; }
+.reference-intro-copy { max-width: 39ch; padding-bottom: 5px; color: var(--muted); font-size: 15px; }
 .reference-figure { width: 100%; }
 .reference-image-link { position: relative; display: block; overflow: hidden; background: var(--soft); }
 .reference-image-link img { width: 100%; aspect-ratio: 16 / 7.8; object-fit: cover; object-position: center 8%; transition: transform .65s cubic-bezier(.2,.65,.3,1); }
@@ -70,6 +70,9 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
 .caption-slash { padding-inline: 5px; color: var(--accent); }
 .reference-figure figcaption a { display: inline-flex; gap: 13px; }
 .continue-link { display: flex; justify-content: space-between; align-items: center; width: min(100%, 250px); margin: 25px 0 0 auto; padding-bottom: 7px; border-bottom: 1px solid var(--ink); font-size: 14px; }
+
+.reference-intro-copy { max-width: 39ch; padding-bottom: 5px; color: var(--muted); font-size: 15px; }
+.reference-intro-copy p + p { margin-top: 10px; }
 
 .offers-section { padding-block: clamp(76px, 10vw, 144px) clamp(78px, 9vw, 132px); }
 .section-heading { margin-bottom: 40px; }
@@ -200,7 +203,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .masthead { padding-inline: 27px; }
   .reference-copy { grid-template-columns: .55fr 1fr; gap: 22px; }
   .reference-intro { grid-template-columns: 1fr; gap: 13px; }
-  .reference-intro > p { max-width: 56ch; }
+  .reference-intro-copy { max-width: 56ch; }
   .packages { grid-template-columns: 1fr 1fr; }
   .package-card:last-child { grid-column: 1 / -1; }
   .package-card:last-child .offer-blocks, .package-card:last-child .offer-features { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
@@ -221,7 +224,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .reference-copy > .eyebrow { padding-top: 0; }
   .reference-intro { grid-template-columns: 1fr; gap: 13px; }
   .reference h1 { font-size: clamp(47px, 12vw, 70px); }
-  .reference-intro > p { max-width: 42ch; font-size: 14px; }
+  .reference-intro-copy { max-width: 42ch; font-size: 14px; }
   .reference-image-link img { aspect-ratio: 1.16 / 1; object-position: 50% 6%; }
   .image-cta { right: 10px; bottom: 10px; gap: 11px; padding: 9px 11px; font-size: 11px; }
   .reference-figure figcaption { align-items: flex-start; font-size: 10px; }
@@ -332,3 +335,4 @@ body:has(dialog[open]) { overflow: hidden; }
  .checkout { grid-template-columns: 1fr; gap: 37px; width: 100%; padding: 30px 20px; }
  dialog { padding: 20px; }
 }
+
