@@ -48,3 +48,13 @@ dialog{width:min(660px,calc(100vw - 30px));max-height:calc(100dvh - 30px);paddin
 .package .tradeoffs{margin-top:0}
 .tool-limit strong,.bonus-description strong{font-weight:700;color:var(--ink)}
 @media(max-width:740px){.package-highlights{margin-top:18px}.package-highlights li{font-size:14px;padding-block:11px}.package-highlights li::before{top:19px}}
+/* Explain the three defining features directly inside each offer. */
+.package-highlights li{padding:0;border-top:1px solid var(--line)}
+.package-highlights li::before{content:none}
+.feature-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:13px;min-height:49px;padding:12px 0;font-size:14px;font-weight:600;line-height:1.45}
+.feature-detail>summary::after{content:'+';flex:0 0 13px;font-size:18px;color:var(--accent);font-weight:400;text-align:center}
+.feature-detail[open]>summary::after{content:'−'}
+.feature-description{padding:0 0 15px;font-size:12px;line-height:1.6;font-weight:400;color:var(--muted)}
+.bonus-grid>.bonus-card:only-child{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(180px,.65fr)}
+@media(max-width:950px){.bonus-grid>.bonus-card:only-child{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}}
+@media(max-width:740px){.bonus-grid>.bonus-card:only-child{grid-template-columns:1fr}.feature-detail>summary{padding-block:11px}}

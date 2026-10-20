@@ -3,9 +3,9 @@ const $ = id => document.getElementById(id);
 const money = value => new Intl.NumberFormat('it-IT', {maximumFractionDigits: 0}).format(value) + ' €';
 let selectedPack = null;
 const selectedBonuses = new Set();
-const bonusById = id => proposal.bonuses.find(item => item.id === id);
+const toolById = id => proposal.bonuses.find(item => item.id === id) || proposal.includedTools.find(item => item.id === id);
 const includedIds = pack => pack ? pack.includes : [];
-function panelActive() { return !!selectedPack && (includedIds(selectedPack).includes('dashboard') || selectedBonuses.has('dashboard')); }
+function panelActive() { return includedIds(selectedPack).includes('dashboard'); }
 function selectedBonusIds() { return [...new Set([...includedIds(selectedPack || {includes: []}), ...selectedBonuses])]; }
 function selectedAddons() { return proposal.bonuses.filter(item => selectedBonuses.has(item.id)); }
 function totalAmount() { return selectedPack ? selectedPack.price + selectedAddons().reduce((sum, item) => sum + item.price, 0) : 0; }
@@ -18,7 +18,7 @@ function toggleLabel(item, included, disabled, locked) {
  label.append(input, title); return label;
 }
 function clearImpossibleSelections(pack) {
- selectedBonuses.forEach(id => { const b = bonusById(id); if (pack.includes.includes(id) || (b.requires && id !== 'dashboard' && !pack.includes.includes('dashboard') && !selectedBonuses.has('dashboard'))) selectedBonuses.delete(id); });
+ selectedBonuses.forEach(id => { const extra = proposal.bonuses.find(item=>item.id===id); if(!extra || pack.includes.includes(id) || (extra.requires && !pack.includes.includes(extra.requires))) selectedBonuses.delete(id); });
 }
 function renderPackages() {
  const root = $('packages'); root.replaceChildren();
@@ -27,7 +27,7 @@ function renderPackages() {
   const top = document.createElement('div'); top.className = 'package-top'; top.append(para('0' + (index + 1), 'package-number'), para(selectedPack?.id === pack.id ? 'Selezionato ✓' : pack.kicker, 'package-kicker'));
   const heading = document.createElement('h3'); heading.textContent = pack.name; card.append(top, heading);
   const features = document.createElement('ul'); features.className = 'package-highlights';
-  pack.ui.features.forEach(text => { const item = document.createElement('li'); item.textContent = text; features.append(item); }); card.append(features);
+  pack.ui.features.forEach((text,index) => { const item = document.createElement('li'); const detail=document.createElement('details'); detail.className='feature-detail'; const summary=document.createElement('summary'); summary.textContent=text; detail.append(summary,para(pack.ui.featureDetails[index],'feature-description')); item.append(detail); features.append(item); }); card.append(features);
   const tradeoffs = document.createElement('div'); tradeoffs.className = 'tradeoffs';
   [['Vantaggio', pack.ui.benefit], ['Limite', pack.ui.limit]].forEach(([name, text]) => { const label = document.createElement('strong'); label.className = 'tradeoff-label'; label.textContent = name; tradeoffs.append(label, para(text)); }); card.append(tradeoffs);
   const details = document.createElement('details'); details.className = 'package-details'; const summary = document.createElement('summary'); summary.textContent = 'Scopri prezzo e scegli';
@@ -42,32 +42,27 @@ function renderPackages() {
 }
 function renderBonuses() {
  const root = $('bonuses'); root.replaceChildren();
- const functions = {
-  dashboard: ['Aggiorna artisti, opere, collezioni, mostre ed eventi.', 'Modifica testi, immagini e stato delle opere: disponibili, riservate o vendute.', 'Accesso privato, guida operativa e sessione di consegna.'],
-  appointments: ['Raccoglie richieste su artisti, opere, eventi e visite.', 'Rispondi dal gestionale e segui lo stato di ogni richiesta.', 'Imposta giorni e orari: conferme, spostamenti e annullamenti aggiornano gli slot.', 'Conferme e promemoria nel flusso concordato.'],
-  qr: ['Una card per ogni artista del catalogo concordato.', 'Link e QR condivisibili verso profilo, eventi o singole opere.', 'Cambia la destinazione dal pannello, senza ristampare il QR.']
- };
  proposal.bonuses.forEach(item => {
   const included = includedIds(selectedPack).includes(item.id); const added = selectedBonuses.has(item.id); const locked = !selectedPack || (!!item.requires && !panelActive());
   const card = document.createElement('article'); card.className = 'bonus-card' + (included || added ? ' is-active' : ''); card.dataset.tool = item.id;
   const header = document.createElement('div'); header.className = 'tool-heading';
-  const state = included ? 'Già incluso' : added ? 'Aggiunto ✓' : item.requires ? 'Estensione del pannello' : 'Lo strumento di base';
+  const state = added ? 'Aggiunto ✓' : 'Extra facoltativo';
   const title = document.createElement('h3'); title.textContent = item.title;
   const benefit = document.createElement('p'); benefit.className='bonus-description'; const benefitLabel=document.createElement('strong'); benefitLabel.textContent='Vantaggio · '; benefit.append(benefitLabel,document.createTextNode(item.ui.summary));
   header.append(para(state, 'tool-state'), title, benefit);
   const info = document.createElement('div'); info.className = 'tool-details';
   const list=document.createElement('ul'); list.className='tool-functions';
-  (functions[item.id] || item.details || []).forEach(text=>{ const li=document.createElement('li'); li.textContent=text; list.append(li); });
+  (item.details || []).forEach(text=>{ const li=document.createElement('li'); li.textContent=text; list.append(li); });
   const limit = document.createElement('p'); limit.className='tool-limit'; const limitLabel=document.createElement('strong'); limitLabel.textContent='Limite · '; limit.append(limitLabel, document.createTextNode(item.ui.limit)); info.append(list,limit);
   const actions=document.createElement('div'); actions.className='tool-actions';
   const price=document.createElement(included ? 's' : 'strong'); price.className='tool-price' + (included ? ' is-included' : ''); price.textContent=money(item.price);
   const plans=proposal.packages.filter(pack=>pack.includes.includes(item.id)).map(pack=>pack.name.replace('Sito ',''));
-  const planText=plans.length ? 'Incluso in ' + plans.join(' e ') : 'Opzionale in tutti i piani';
+  const planText=plans.length ? 'Incluso in ' + plans.join(' e ') : 'Extra per Avanzato e Pro';
   actions.append(price,para(planText,'tool-plans'));
-  const choice = toggleLabel(item,included,locked,!selectedPack ? 'Scegli prima un sito' : 'Richiede il pannello');
-  choice.querySelector('input').addEventListener('change',event=>{ if(event.target.checked) selectedBonuses.add(item.id); else { selectedBonuses.delete(item.id); if(item.id==='dashboard') { selectedBonuses.delete('qr'); selectedBonuses.delete('appointments'); } } $('confirm').checked=false; renderBonuses(); renderSummary(); $('bonuses').querySelector('input[value="'+item.id+'"]')?.focus?.({preventScroll:true}); });
+  const choice = toggleLabel(item,included,locked,!selectedPack ? 'Scegli prima un sito' : 'Disponibile con Avanzato o Pro');
+  choice.querySelector('input').addEventListener('change',event=>{ if(event.target.checked) selectedBonuses.add(item.id); else selectedBonuses.delete(item.id); $('confirm').checked=false; renderBonuses(); renderSummary(); $('bonuses').querySelector('input[value="'+item.id+'"]')?.focus?.({preventScroll:true}); });
   actions.append(choice);
-  if(selectedPack && locked) { const unlock=document.createElement('button'); unlock.type='button'; unlock.className='text-button'; unlock.textContent='Vai al pannello necessario ↑'; unlock.addEventListener('click',()=>{ const panel=$('bonuses').querySelector('[data-tool="dashboard"]'); panel?.scrollIntoView?.({behavior:'smooth',block:'center'}); panel?.querySelector('input')?.focus?.({preventScroll:true}); }); actions.append(unlock); }
+  if(selectedPack && locked) { const upgrade=document.createElement('a'); upgrade.href='#proposte'; upgrade.className='text-button'; upgrade.textContent='Confronta Avanzato e Pro ↑'; upgrade.addEventListener('click',()=>setStep(1)); actions.append(upgrade); }
   card.append(header,info,actions); root.append(card);
  });
 }
@@ -77,16 +72,16 @@ function setStep(step) {
 }
 function renderSummary() {
  const root = $('summary'); root.replaceChildren();
- if (!selectedPack) { root.append(para('Scegli un sito per iniziare. Il totale e gli strumenti compariranno qui.')); const start = document.createElement('a'); start.href='#proposte'; start.textContent='Scegli il sito ↑'; start.className='text-button'; root.append(start); $('total').textContent = '—'; $('preview').disabled = true; $('selection-dock').hidden = true; return; }
+ if (!selectedPack) { root.append(para('Scegli un sito per iniziare. Il totale e le funzioni incluse compariranno qui.')); const start = document.createElement('a'); start.href='#proposte'; start.textContent='Scegli il sito ↑'; start.className='text-button'; root.append(start); $('total').textContent = '—'; $('preview').disabled = true; $('selection-dock').hidden = true; return; }
  root.append(line(selectedPack.name, 'summary-primary')); root.append(line('Pacchetto · ' + money(selectedPack.price), 'summary-row'));
- const included = selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(bonusById);
+ const included = selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(toolById);
  if (included.length) { root.append(line('Strumenti inclusi', 'summary-label')); included.forEach(item => root.append(line(item.title + ' · già incluso', 'summary-row'))); }
  const additions = selectedAddons();
  if (additions.length) { root.append(line('Strumenti aggiunti', 'summary-label')); additions.forEach(item => root.append(line(item.title + ' · ' + money(item.price), 'summary-row'))); }
- $('total').textContent = money(totalAmount()); $('preview').disabled = false; $('selection-dock').hidden = false; $('dock-selection').textContent = selectedPack.name; $('dock-total').textContent = money(totalAmount()); $('tools-hint').textContent = selectedPack.name + ' selezionato. Gli strumenti già inclusi sono indicati; puoi aggiungere gli altri oppure continuare al riepilogo.';
+ $('total').textContent = money(totalAmount()); $('preview').disabled = false; $('selection-dock').hidden = false; $('dock-selection').textContent = selectedPack.name; $('dock-total').textContent = money(totalAmount()); $('tools-hint').textContent = panelActive() ? selectedPack.name + ' selezionato. Puoi aggiungere le Gallery Digital Cards oppure continuare senza extra.' : 'Il Sito Base non comprende il pannello necessario alle Cards. Puoi scegliere Avanzato o Pro, oppure continuare senza extra.';
 }
 function dateLabel() { return new Intl.DateTimeFormat('it-IT', {timeZone:'Europe/Rome', day:'2-digit', month:'long', year:'numeric'}).format(new Date()); }
-function currentSelection() { return {pack:selectedPack, includedBonuses:selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(bonusById), addedBonuses:selectedAddons(), total:totalAmount()}; }
+function currentSelection() { return {pack:selectedPack, includedBonuses:selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(toolById), addedBonuses:selectedAddons(), total:totalAmount()}; }
 function sheetContent(selection, confirmed) {
  const root = $('sheet'); root.replaceChildren();
  const h = document.createElement('h3'); h.textContent = selection.pack.name + ' · ' + money(selection.pack.price); root.append(h);
@@ -111,6 +106,6 @@ $('confirm').addEventListener('change', () => { if ($('modal').open && selectedP
 $('close').addEventListener('click', () => $('modal').close()); $('modal').addEventListener('click', event => { if (event.target === $('modal')) $('modal').close(); });
 $('download').addEventListener('click', () => { if (!selectedPack) return; const blob = makePdf($('confirm').checked); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'proposta-galleria.pdf'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); });
 $('share').addEventListener('click', async () => { if (!selectedPack) return; const blob = makePdf($('confirm').checked); const file = new File([blob], 'proposta-galleria.pdf', {type:'application/pdf'}); try { if (navigator.canShare?.({files:[file]})) await navigator.share({files:[file], title:'Proposta sito galleria'}); else { $('download').click(); $('shareStatus').textContent = 'PDF scaricato: allegalo alla chat o al messaggio che preferisci.'; } } catch (error) { if (error.name !== 'AbortError') $('shareStatus').textContent = 'Non è stato possibile aprire la condivisione.'; } });
-window.money = money; window.bonusSummary = index => selectedBonusIds().map(bonusById).map(x=>x.title).join(', ') || 'nessuno';
+window.money = money; window.bonusSummary = index => selectedBonusIds().map(toolById).map(x=>x.title).join(', ') || 'nessuno';
 
 

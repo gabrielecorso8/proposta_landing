@@ -1,33 +1,25 @@
-# Proposta sito per galleria d’arte
+# Preventivo interattivo per galleria d’arte
 
-Preventivo interattivo con il titolo «La proposta per la tua galleria» direttamente sopra il riquadro navigabile FORMA. Dopo il fac simile, il percorso guida alla scelta del sito, agli strumenti e al riepilogo.
+La pagina presenta FORMA e guida alla scelta di Sito Base, Sito Avanzato o Sito Pro, alla valutazione dell’unico extra e al riepilogo PDF.
 
-Le offerte mostrano nome e tre caratteristiche principali in evidenza, seguite da Vantaggio e Limite con etichette in grassetto. La proposta è presentata come un progetto su misura per l’identità della galleria e gli artisti rappresentati; le Gallery Digital Cards permettono a ogni artista di invitare il proprio pubblico sul sito. Il prezzo del sito compare nell’approfondimento insieme al pulsante di scelta; le specifiche complete restano consultabili separatamente.
+## Siti
 
-I tre strumenti sono sempre aperti, con funzioni, limite, prezzo e selettore visibili. Accanto al prezzo è indicato in quali piani lo strumento è incluso. Quando il piano scelto lo comprende, il prezzo separato viene barrato e il controllo risulta già selezionato e disabilitato. Le Gallery Digital Cards restano opzionali in tutti i piani.
+- Sito Base: 890 €, sito della galleria con artisti, opere, catalogo, eventi e contatti.
+- Sito Avanzato: 1.090 €, comprende il pannello di controllo per gli aggiornamenti autonomi.
+- Sito Pro: 1.290 €, comprende pannello e gestionale per richieste, informazioni e visite.
 
-La navigazione dei tre passaggi e la barra con sito e totale facilitano il ritorno alla configurazione. Le condizioni sono raccolte in sezioni espandibili dopo il riepilogo.
+Ogni sito mostra tre punti espandibili con spiegazioni contestuali, oltre a Vantaggio e Limite in grassetto. I prezzi dei siti restano all’interno dell’approfondimento di selezione.
 
-## Offerte
+Pannello e gestionale sono funzioni dei siti, non extra separati.
 
-- Sito Base: 890 €, senza strumenti inclusi.
-- Sito Avanzato: 1.090 €, pannello di controllo incluso.
-- Sito Pro: 1.290 €, pannello e modulo richieste, informazioni e appuntamenti/visite con gestionale inclusi.
+## Unico extra: Gallery Digital Cards
 
-## Strumenti
+110 €, opzionali e mai incluse di default. Ogni artista può condividere un link o QR per portare i propri contatti al sito della galleria, al proprio profilo o a una singola opera. Le Cards sono gestite dal pannello e disponibili per Sito Avanzato e Sito Pro.
 
-1. Pannello di controllo: 260 € se aggiunto al Sito Base. Consente alla galleria di aggiornare autonomamente artisti, opere, collezioni, mostre, eventi e disponibilità nelle sezioni concordate.
-2. Richieste, informazioni e visite: 290 € se aggiunto separatamente. Il modulo pubblico raccoglie richieste; dal gestionale la galleria risponde direttamente e gestisce le visite con calendario e disponibilità aggiornate automaticamente.
-3. Gallery Digital Cards: 110 €, sempre opzionali. Ogni artista ha una card con link/QR gestita dal pannello privato della galleria e indirizzabile al proprio profilo, a eventi o a singole opere.
+Il prezzo e le funzioni delle Cards sono sempre visibili. Con Sito Base l’extra è bloccato e un collegamento riporta al confronto delle offerte compatibili. Passando da un sito compatibile al Base, le Cards vengono rimosse dal totale.
 
-Il secondo e il terzo strumento richiedono il pannello. Gli strumenti già compresi nell’offerta sono indicati come inclusi e non selezionabili. Rimuovendo un pannello aggiunto al Sito Base si rimuovono anche le sue estensioni selezionate. Senza un’offerta scelta non è possibile attivare strumenti.
+## Uso e perimetro
 
-## Perimetro
+Aprire `index.html` o avviare un server statico nella cartella. GitHub Pages può pubblicare la root della branch scelta. Le selezioni restano nel browser e il PDF viene generato localmente.
 
-La proposta considera una sede, una lingua, fino a 25 opere iniziali e un ciclo di revisione, con materiali forniti dalla galleria. Servizio email, dominio, hosting, eventuali calendari esterni e costi ricorrenti si definiscono prima dell’avvio.
-
-## Uso
-
-Aprire `index.html` oppure avviare un server statico dalla cartella del repository. GitHub Pages può pubblicare la root della branch scelta.
-
-Le scelte restano nel browser. Il PDF viene generato localmente con offerta, strumenti inclusi, strumenti aggiunti, totale e data. La pagina è una proposta commerciale: gli strumenti descritti saranno sviluppati nel sito della galleria.
+La proposta considera una sede, una lingua, fino a 25 opere iniziali e un ciclo di revisione. Materiali, tempi, servizi email, dominio, hosting e collegamenti esterni vengono concordati prima dell’avvio.

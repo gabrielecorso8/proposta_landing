@@ -1,6 +1,6 @@
 const proposal = {
   "intro": [
-    "Esplora il fac simile, scegli il sito e aggiungi gli strumenti che ti servono. Il totale si aggiorna mentre componi la proposta."
+    "Esplora il fac simile, scegli il sito e valuta le Gallery Digital Cards. Il totale segue la tua selezione."
   ],
   "confirmation": "Ho letto la selezione e chiedo di confermare perimetro, tempi e condizioni prima dell’avvio dei lavori.",
   "externalCosts": "Dominio, hosting, servizi email, sincronizzazioni con calendari esterni ed eventuali servizi di terze parti si verificano e si concordano prima dell’avvio. Gli eventuali costi ricorrenti non sono compresi negli importi indicati.",
@@ -34,23 +34,22 @@ const proposal = {
         "Impostazioni di base per titoli, descrizioni e condivisione delle pagine."
       ],
       "benefit": "Una presenza online curata che aiuta a passare dalla scoperta di un’opera a una conversazione con la galleria.",
-      "limit": "Il Sito Base non comprende il pannello: gli aggiornamenti successivi alla consegna richiedono un intervento concordato. Aggiungendo il pannello, la galleria può gestire autonomamente i contenuti previsti.",
-      "highlights": [
-        "Sito della galleria con identità visiva ispirata a FORMA.",
-        "Profili degli artisti, catalogo e schede delle opere.",
-        "Eventi, mostre e contatti diretti.",
-        "Strumenti di gestione aggiungibili secondo necessità."
-      ],
+      "limit": "Il Sito Base non comprende il pannello: gli aggiornamenti successivi alla consegna richiedono un intervento concordato. Per gestire i contenuti in autonomia è previsto il Sito Avanzato.",
       "ui": {
         "summary": "Un sito pensato per raccontare la galleria, la sua ricerca e gli artisti rappresentati.",
         "benefit": "Valorizza la ricerca della galleria e offre a ogni artista una pagina da condividere.",
-        "limit": "Per aggiornare i contenuti serve il mio intervento, salvo aggiungere il pannello.",
+        "limit": "Gli aggiornamenti richiedono il mio intervento. Il pannello è previsto da Sito Avanzato.",
         "features": [
           "Artisti, opere, mostre ed eventi",
           "Catalogo con schede e filtri",
           "Contatti diretti via email e WhatsApp"
         ],
-        "included": "Nessuno strumento incluso"
+        "included": "Sito senza pannello o gestionale",
+        "featureDetails": [
+          "Pagine pensate per raccontare l’identità della galleria, i suoi artisti e le iniziative. Ogni artista ha un profilo condivisibile che invita il proprio pubblico a scoprire la galleria.",
+          "Le opere hanno immagini e informazioni dedicate. I filtri concordati aiutano a esplorare il catalogo e trovare ciò che interessa.",
+          "Dal sito e dalle schede opera si può contattare direttamente la galleria via email o WhatsApp. La conversazione prosegue sui canali abituali, senza un gestionale dedicato."
+        ]
       }
     },
     {
@@ -73,7 +72,7 @@ const proposal = {
         },
         {
           "title": "La base per gli strumenti della galleria",
-          "text": "Il pannello è il punto di accesso comune. Il gestionale delle richieste e le Gallery Digital Cards si possono attivare come sue estensioni: ciascuna aggiunge un’attività concreta da gestire nello stesso ambiente privato."
+          "text": "Il pannello è il punto di accesso comune. Nel Sito Pro comprende anche il gestionale richieste e visite. Con Sito Avanzato e Sito Pro si possono aggiungere le Gallery Digital Cards."
         }
       ],
       "items": [
@@ -87,23 +86,22 @@ const proposal = {
         "Sessione di consegna e guida operativa per l’aggiornamento dei contenuti."
       ],
       "benefit": "La galleria aggiorna il sito in autonomia, con un unico ambiente privato per i contenuti e le eventuali estensioni.",
-      "limit": "L’autonomia riguarda i contenuti e le sezioni concordate. Nuovi layout e nuove funzionalità richiedono un intervento dedicato. Gestionale richieste e Gallery Digital Cards si aggiungono separatamente.",
-      "highlights": [
-        "Tutto il Sito Base.",
-        "Pannello privato di controllo già incluso.",
-        "Aggiornamenti autonomi di artisti, opere, collezioni ed eventi.",
-        "Disponibilità delle opere sempre aggiornate."
-      ],
+      "limit": "Il pannello gestisce i contenuti e le sezioni concordate. Nuovi layout richiedono un intervento dedicato. Il gestionale richieste e visite è previsto nel Sito Pro; le Gallery Digital Cards sono l’unico extra opzionale.",
       "ui": {
         "summary": "La presenza digitale della galleria, con gli strumenti per farla crescere in autonomia.",
         "benefit": "Mantieni aggiornati artisti, opere e mostre seguendo la vita della galleria.",
-        "limit": "Gestionale richieste e Gallery Digital Cards si aggiungono a parte.",
+        "limit": "Il gestionale per richieste e visite è previsto nel Sito Pro.",
         "features": [
           "Tutto il Sito Base",
           "Pannello di controllo privato incluso",
           "Artisti, opere ed eventi aggiornabili in autonomia"
         ],
-        "included": "Pannello incluso"
+        "included": "Pannello incluso",
+        "featureDetails": [
+          "Comprende il sito di presentazione, i profili degli artisti, il catalogo con schede e filtri, mostre, eventi e contatti diretti. La direzione grafica viene adattata all’identità della galleria.",
+          "Un accesso riservato permette alla galleria di modificare testi, immagini e pagine previste, senza intervenire sul codice e senza dipendere dal mio intervento per ogni aggiornamento.",
+          "Aggiungi opere e artisti, aggiorna eventi e collezioni e indica se un’opera è disponibile, riservata o venduta. Il sito pubblico riflette gli aggiornamenti."
+        ]
       }
     },
     {
@@ -147,12 +145,6 @@ const proposal = {
       "after": "Il gestionale è un’estensione del pannello e comprende il calendario interno. La galleria mantiene il controllo delle risposte, delle conferme e delle disponibilità pubblicate.",
       "benefit": "Le richieste diventano un’attività organizzata: la galleria risponde in prima persona e il calendario mantiene aggiornati gli appuntamenti.",
       "limit": "Le Gallery Digital Cards sono opzionali anche nel Sito Pro. L’invio delle risposte e delle notifiche richiede la configurazione del servizio email; collegamenti a calendari o servizi esterni si concordano separatamente.",
-      "highlights": [
-        "Tutto il Sito Avanzato.",
-        "Modulo informazioni e richieste di visita incluso.",
-        "Gestionale per rispondere direttamente alle richieste.",
-        "Organizzazione delle visite e disponibilità automatizzate."
-      ],
       "ui": {
         "summary": "Un percorso tra opere, richieste e visite, modellato sul lavoro quotidiano della galleria.",
         "benefit": "Accompagna l’interesse per un artista o un’opera fino al dialogo e alla visita.",
@@ -162,68 +154,34 @@ const proposal = {
           "Gestionale per rispondere agli interessati",
           "Calendario e organizzazione delle visite"
         ],
-        "included": "Pannello e gestionale inclusi"
+        "included": "Pannello e gestionale inclusi",
+        "featureDetails": [
+          "Comprende tutte le pagine del sito e il pannello privato per aggiornare autonomamente artisti, opere, collezioni ed eventi.",
+          "Il modulo raccoglie richieste su artisti, opere ed eventi. Dal gestionale la galleria legge i messaggi, risponde direttamente e segue lo stato della conversazione con ogni interessato.",
+          "La galleria imposta giorni, orari e durata delle visite. Conferme, spostamenti e annullamenti aggiornano gli slot disponibili; conferme e promemoria seguono il flusso concordato."
+        ]
       }
     }
   ],
   "bonuses": [
     {
-      "id": "dashboard",
-      "title": "Pannello di controllo",
-      "price": 260,
-      "requires": null,
-      "tag": "Incluso in Sito Avanzato e Sito Pro",
-      "text": "Il pannello privato da cui la galleria aggiorna autonomamente il sito, senza dipendere da me per le modifiche quotidiane. È anche la base comune per attivare il gestionale richieste e le Gallery Digital Cards.",
-      "details": [
-        "Aggiornamento di profili degli artisti, opere, collezioni, mostre ed eventi nelle sezioni concordate.",
-        "Modifica di testi, immagini, ordine dei contenuti e disponibilità: disponibile, riservata o venduta.",
-        "Accesso privato, sessione guidata e istruzioni per le attività quotidiane."
-      ],
-      "lockedText": "Seleziona prima un’offerta. Il pannello è aggiungibile al Sito Base ed è già incluso in Sito Avanzato e Sito Pro.",
-      "ui": {
-        "summary": "Aggiorna il sito in autonomia.",
-        "benefit": "Modifica artisti, opere, eventi e disponibilità dal pannello privato.",
-        "limit": "Gestisce i contenuti concordati; nuovi layout si valutano a parte."
-      }
-    },
-    {
-      "id": "appointments",
-      "title": "Richieste, informazioni e visite",
-      "price": 290,
-      "requires": "dashboard",
-      "tag": "Modulo + gestionale · Incluso nel Sito Pro",
-      "text": "Un modulo sul sito raccoglie informazioni e richieste di appuntamento o visita. Nel gestionale, integrato nel pannello, la galleria risponde direttamente e automatizza l’organizzazione degli incontri.",
-      "details": [
-        "Richieste collegate ad artisti, opere ed eventi, con messaggio e recapiti dell’interessato.",
-        "Risposte direttamente dal gestionale e organizzazione delle richieste per stato.",
-        "Giorni, orari, durata delle visite e chiusure configurabili dalla galleria.",
-        "Disponibilità aggiornate automaticamente dopo conferme, spostamenti e annullamenti; conferme e promemoria nel flusso concordato."
-      ],
-      "lockedText": "Richiede il pannello di controllo. Nel Sito Base aggiungi prima il pannello; nel Sito Avanzato puoi aggiungere il gestionale; nel Sito Pro è già incluso.",
-      "ui": {
-        "summary": "Ricevi richieste, rispondi e organizza le visite.",
-        "benefit": "Risposte dal gestionale e slot aggiornati automaticamente.",
-        "limit": "Richiede il pannello. I servizi email e i calendari esterni vanno configurati."
-      }
-    },
-    {
       "id": "qr",
       "title": "Gallery Digital Cards",
       "price": 110,
       "requires": "dashboard",
-      "tag": "Estensione del pannello · Sempre opzionale",
-      "text": "Ogni artista ha la propria card digitale, gestita dal pannello privato della galleria. Con un link o QR code può indirizzare potenziali acquirenti e interessati al proprio profilo, a eventi specifici o alle singole opere.",
+      "tag": "Unico extra · Per Sito Avanzato e Sito Pro",
+      "text": "Ogni artista può condividere la propria Gallery Digital Card con un link o QR code. Chi lo incontra, vede una sua opera o segue i suoi canali arriva direttamente al sito della galleria, al suo profilo o a una singola opera, con le informazioni e i contatti a portata di mano.",
       "details": [
-        "Creazione e gestione di una card per ciascun artista del catalogo concordato.",
-        "Link e QR code condivisibili online, in galleria, durante mostre e incontri.",
-        "Scelta della destinazione: profilo dell’artista, evento specifico o singola opera.",
-        "Aggiornamento della destinazione dal pannello senza ristampare il QR code."
+        "Una card digitale per ogni artista del catalogo concordato.",
+        "Condividi link e QR durante mostre, incontri e sui canali dell’artista.",
+        "Indirizza al sito della galleria, al profilo dell’artista o a una singola opera.",
+        "La galleria aggiorna la destinazione dal pannello, senza ristampare il QR."
       ],
-      "lockedText": "Le Gallery Digital Cards richiedono il pannello di controllo. Aggiungilo al Sito Base oppure scegli Sito Avanzato o Sito Pro.",
+      "lockedText": "Le Gallery Digital Cards sono disponibili con Sito Avanzato e Sito Pro. Il Sito Base non comprende il pannello necessario.",
       "ui": {
-        "summary": "Ogni artista invita il proprio pubblico sul sito della galleria.",
-        "benefit": "Condividi un link o QR verso profilo, eventi o singole opere.",
-        "limit": "Richiede il pannello e resta opzionale in tutte le offerte."
+        "summary": "Trasforma l’interesse per un artista in una visita diretta al sito, al suo profilo o a una sua opera.",
+        "benefit": "Trasforma l’interesse per un artista in una visita diretta al sito, al suo profilo o a una sua opera.",
+        "limit": "Richiede il pannello di controllo, incluso nel Sito Avanzato e nel Sito Pro."
       }
     }
   ],
@@ -245,11 +203,10 @@ const proposal = {
       ]
     ],
     [
-      "Strumenti e dipendenze",
+      "Funzioni dei siti ed extra",
       [
-        "Il Sito Base non include strumenti opzionali. Il Sito Avanzato include il pannello di controllo. Il Sito Pro include pannello e modulo richieste, informazioni e appuntamenti/visite con il relativo gestionale.",
-        "Gestionale richieste e Gallery Digital Cards sono estensioni pratiche del pannello: si possono attivare soltanto quando il pannello è incluso nell’offerta o aggiunto alla configurazione.",
-        "Le Gallery Digital Cards restano opzionali per tutte le offerte. Gli strumenti già compresi vengono indicati come già inclusi e non sono selezionabili una seconda volta."
+        "Il Sito Base presenta la galleria e le opere. Il Sito Avanzato aggiunge il pannello per gli aggiornamenti autonomi. Il Sito Pro comprende anche il gestionale richieste, informazioni e visite. Pannello e gestionale fanno parte delle rispettive offerte e non sono acquistabili come extra separati.",
+        "Le Gallery Digital Cards sono l’unico extra, a 110 €. Richiedono il pannello e possono essere aggiunte al Sito Avanzato o al Sito Pro. La galleria gestisce una card per ciascun artista e sceglie se indirizzare al sito, al profilo dell’artista o a una specifica opera."
       ]
     ],
     [
@@ -260,5 +217,15 @@ const proposal = {
         "Dominio, hosting, caselle email, servizi di calendario esterni e strumenti di terze parti possono comportare costi ricorrenti e non sono compresi. Modalità di pagamento e trattamento fiscale saranno specificati nel preventivo definitivo."
       ]
     ]
+  ],
+  "includedTools": [
+    {
+      "id": "dashboard",
+      "title": "Pannello di controllo"
+    },
+    {
+      "id": "appointments",
+      "title": "Gestionale richieste, informazioni e visite"
+    }
   ]
 };
