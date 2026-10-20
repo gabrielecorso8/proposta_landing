@@ -42,8 +42,8 @@ const proposal = {
         "Strumenti di gestione aggiungibili secondo necessità."
       ],
       "ui": {
-        "summary": "Presenta la galleria e le opere, con un percorso diretto al contatto.",
-        "benefit": "Una presenza curata per farti conoscere e ricevere contatti.",
+        "summary": "Un sito pensato per raccontare la galleria, la sua ricerca e gli artisti rappresentati.",
+        "benefit": "Valorizza la ricerca della galleria e offre a ogni artista una pagina da condividere.",
         "limit": "Per aggiornare i contenuti serve il mio intervento, salvo aggiungere il pannello.",
         "features": [
           "Artisti, opere, mostre ed eventi",
@@ -95,13 +95,13 @@ const proposal = {
         "Disponibilità delle opere sempre aggiornate."
       ],
       "ui": {
-        "summary": "Il sito completo, con la libertà di aggiornarlo in autonomia.",
-        "benefit": "Aggiorni artisti, opere, eventi e disponibilità senza dipendere da me.",
+        "summary": "La presenza digitale della galleria, con gli strumenti per farla crescere in autonomia.",
+        "benefit": "Mantieni aggiornati artisti, opere e mostre seguendo la vita della galleria.",
         "limit": "Gestionale richieste e Gallery Digital Cards si aggiungono a parte.",
         "features": [
           "Tutto il Sito Base",
           "Pannello di controllo privato incluso",
-          "Aggiornamenti autonomi dei contenuti"
+          "Artisti, opere ed eventi aggiornabili in autonomia"
         ],
         "included": "Pannello incluso"
       }
@@ -154,13 +154,13 @@ const proposal = {
         "Organizzazione delle visite e disponibilità automatizzate."
       ],
       "ui": {
-        "summary": "Il sito autonomo, con richieste e visite organizzate nello stesso pannello.",
-        "benefit": "Rispondi ai contatti dal gestionale e automatizzi l’organizzazione delle visite.",
+        "summary": "Un percorso tra opere, richieste e visite, modellato sul lavoro quotidiano della galleria.",
+        "benefit": "Accompagna l’interesse per un artista o un’opera fino al dialogo e alla visita.",
         "limit": "Gallery Digital Cards opzionali. Calendari esterni da concordare.",
         "features": [
           "Tutto il Sito Avanzato",
-          "Modulo informazioni e visite incluso",
-          "Gestionale con risposte e calendario"
+          "Gestionale per rispondere agli interessati",
+          "Calendario e organizzazione delle visite"
         ],
         "included": "Pannello e gestionale inclusi"
       }
@@ -221,7 +221,7 @@ const proposal = {
       ],
       "lockedText": "Le Gallery Digital Cards richiedono il pannello di controllo. Aggiungilo al Sito Base oppure scegli Sito Avanzato o Sito Pro.",
       "ui": {
-        "summary": "Una card digitale per ogni artista.",
+        "summary": "Ogni artista invita il proprio pubblico sul sito della galleria.",
         "benefit": "Condividi un link o QR verso profilo, eventi o singole opere.",
         "limit": "Richiede il pannello e resta opzionale in tutte le offerte."
       }

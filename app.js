@@ -25,8 +25,11 @@ function renderPackages() {
  proposal.packages.forEach((pack, index) => {
   const card = document.createElement('article'); card.className = 'package' + (selectedPack?.id === pack.id ? ' is-selected' : ''); card.dataset.id = pack.id;
   const top = document.createElement('div'); top.className = 'package-top'; top.append(para('0' + (index + 1), 'package-number'), para(selectedPack?.id === pack.id ? 'Selezionato ✓' : pack.kicker, 'package-kicker'));
-  const heading = document.createElement('h3'); heading.textContent = pack.name; card.append(top, heading, para(pack.ui.included, 'package-inclusions'));
-  const tradeoffs = document.createElement('div'); tradeoffs.className = 'tradeoffs'; tradeoffs.append(para('Vantaggio', 'tradeoff-label'), para(pack.ui.benefit), para('Limite', 'tradeoff-label'), para(pack.ui.limit)); card.append(tradeoffs);
+  const heading = document.createElement('h3'); heading.textContent = pack.name; card.append(top, heading);
+  const features = document.createElement('ul'); features.className = 'package-highlights';
+  pack.ui.features.forEach(text => { const item = document.createElement('li'); item.textContent = text; features.append(item); }); card.append(features);
+  const tradeoffs = document.createElement('div'); tradeoffs.className = 'tradeoffs';
+  [['Vantaggio', pack.ui.benefit], ['Limite', pack.ui.limit]].forEach(([name, text]) => { const label = document.createElement('strong'); label.className = 'tradeoff-label'; label.textContent = name; tradeoffs.append(label, para(text)); }); card.append(tradeoffs);
   const details = document.createElement('details'); details.className = 'package-details'; const summary = document.createElement('summary'); summary.textContent = 'Scopri prezzo e scegli';
   const content = document.createElement('div'); content.className = 'package-body';
   const purchase = document.createElement('div'); purchase.className = 'package-purchase'; const price = document.createElement('strong'); price.className = 'expanded-price'; price.textContent = money(pack.price);
@@ -50,7 +53,8 @@ function renderBonuses() {
   const header = document.createElement('div'); header.className = 'tool-heading';
   const state = included ? 'Già incluso' : added ? 'Aggiunto ✓' : item.requires ? 'Estensione del pannello' : 'Lo strumento di base';
   const title = document.createElement('h3'); title.textContent = item.title;
-  header.append(para(state, 'tool-state'), title, para(item.ui.summary, 'bonus-description'));
+  const benefit = document.createElement('p'); benefit.className='bonus-description'; const benefitLabel=document.createElement('strong'); benefitLabel.textContent='Vantaggio · '; benefit.append(benefitLabel,document.createTextNode(item.ui.summary));
+  header.append(para(state, 'tool-state'), title, benefit);
   const info = document.createElement('div'); info.className = 'tool-details';
   const list=document.createElement('ul'); list.className='tool-functions';
   (functions[item.id] || item.details || []).forEach(text=>{ const li=document.createElement('li'); li.textContent=text; list.append(li); });

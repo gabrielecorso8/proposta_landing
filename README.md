@@ -2,7 +2,7 @@
 
 Preventivo interattivo con il titolo «La proposta per la tua galleria» direttamente sopra il riquadro navigabile FORMA. Dopo il fac simile, il percorso guida alla scelta del sito, agli strumenti e al riepilogo.
 
-Le offerte mostrano nome, strumenti inclusi, vantaggio e limite, senza elenchi introduttivi ripetuti. Il prezzo del sito compare nell’approfondimento insieme al pulsante di scelta; le specifiche complete restano consultabili separatamente.
+Le offerte mostrano nome e tre caratteristiche principali in evidenza, seguite da Vantaggio e Limite con etichette in grassetto. La proposta è presentata come un progetto su misura per l’identità della galleria e gli artisti rappresentati; le Gallery Digital Cards permettono a ogni artista di invitare il proprio pubblico sul sito. Il prezzo del sito compare nell’approfondimento insieme al pulsante di scelta; le specifiche complete restano consultabili separatamente.
 
 I tre strumenti sono sempre aperti, con funzioni, limite, prezzo e selettore visibili. Accanto al prezzo è indicato in quali piani lo strumento è incluso. Quando il piano scelto lo comprende, il prezzo separato viene barrato e il controllo risulta già selezionato e disabilitato. Le Gallery Digital Cards restano opzionali in tutti i piani.
 

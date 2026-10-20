@@ -39,3 +39,12 @@ dialog{width:min(660px,calc(100vw - 30px));max-height:calc(100dvh - 30px);paddin
 .tool-actions .text-button{font-size:11px;text-align:left}
 @media(max-width:950px){.bonus-card{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px}.tool-actions{grid-column:1/-1;border:0;border-top:1px solid var(--line);padding:16px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}.tool-actions .bonus-choice{border:0;margin:0 0 0 auto;padding:0}.tool-plans{margin:0;max-width:none}.tool-actions .text-button{margin:0}}
 @media(max-width:740px){.hero{padding-top:26px}.hero h1{font-size:29px;margin-bottom:20px}.package-inclusions{min-height:0}.package .tradeoffs{margin-bottom:19px}.bonus-card{grid-template-columns:1fr;gap:17px;padding-block:24px}.bonus-card h3{font-size:25px}.bonus-description{max-width:none}.tool-actions{grid-column:auto}.tool-details{border-top:1px solid var(--line);padding-top:17px}.tool-actions .bonus-choice{margin-left:0;width:100%;padding-top:7px}.tool-price{font-size:27px}.tool-plans{max-width:23ch}.tool-actions .text-button{margin-top:4px}}
+
+/* Three clear characteristics and concise, recognisable tradeoffs. */
+.package-highlights{min-height:0;margin:22px 0 12px;padding:0;list-style:none}
+.package-highlights li{position:relative;padding:12px 0 12px 15px;border-top:1px solid var(--line);font-size:14px;font-weight:600;line-height:1.45;color:var(--ink)}
+.package-highlights li::before{content:'';position:absolute;left:0;top:20px;width:4px;height:4px;background:var(--accent)}
+.tradeoff-label{display:block;font-size:11px;font-weight:700;letter-spacing:.025em;color:var(--ink)}
+.package .tradeoffs{margin-top:0}
+.tool-limit strong,.bonus-description strong{font-weight:700;color:var(--ink)}
+@media(max-width:740px){.package-highlights{margin-top:18px}.package-highlights li{font-size:14px;padding-block:11px}.package-highlights li::before{top:19px}}
