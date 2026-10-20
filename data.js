@@ -26,7 +26,7 @@ const proposal = {
         "Direzione grafica personalizzata, in coerenza con il fac simile FORMA e il tono della galleria.",
         "Pagine per presentazione, spazi, collezioni e contatti, da definire insieme.",
         "Profili degli artisti e pagine per mostre ed eventi, con struttura concordata.",
-        "Caricamento iniziale fino a 25 opere con immagini, autore, titolo e dati disponibili.",
+        "Caricamento del catalogo iniziale prestabilito con immagini, autore, titolo e dati disponibili.",
         "Schede opera e navigazione ottimizzata per smartphone, tablet e computer.",
         "Filtri di catalogo da concordare in base alle collezioni (per esempio artista, tecnica o categoria).",
         "Immagini osservabili nel dettaglio e preferiti salvati sul dispositivo del visitatore.",
@@ -174,8 +174,8 @@ const proposal = {
       "details": [
         "Una card digitale per ogni artista del catalogo concordato.",
         "Condividi link e QR durante mostre, incontri e sui canali dell’artista.",
-        "Indirizza al sito della galleria, al profilo dell’artista o a una singola opera.",
-        "La galleria aggiorna la destinazione dal pannello, senza ristampare il QR."
+        "Ogni artista sceglie se indirizzare alla propria pagina, a una singola opera o al sito della galleria.",
+        "La destinazione si aggiorna dal pannello, senza ristampare il QR."
       ],
       "lockedText": "Le Gallery Digital Cards sono disponibili con Sito Avanzato e Sito Pro. Il Sito Base non comprende il pannello necessario.",
       "ui": {
@@ -189,9 +189,9 @@ const proposal = {
     [
       "Perimetro del progetto",
       [
-        "La proposta considera un sito in italiano, una sede e un catalogo iniziale fino a 25 opere. La galleria fornisce testi, fotografie e informazioni disponibili; quantità e materiali vengono confermati prima dell’avvio.",
+        "La proposta considera un sito in italiano e inglese, una sede e un catalogo iniziale prestabilito. La galleria fornisce o accetta testi, fotografie e informazioni disponibili; quantità e materiali vengono confermati prima dell’avvio.",
         "Sono inclusi adattamento grafico, caricamento iniziale dei contenuti concordati, verifica su smartphone e computer e un ciclo di revisione su testi e impaginazione.",
-        "Produzione fotografica, traduzioni, redazione estesa dei testi, e-commerce, pagamenti online e inventario amministrativo non sono inclusi. Eventuali richieste fuori perimetro si stimano prima di procedere."
+        "Produzione fotografica, redazione estesa dei testi, e-commerce, pagamenti online e inventario amministrativo non sono inclusi. Eventuali richieste fuori perimetro si stimano prima di procedere."
       ]
     ],
     [
@@ -206,7 +206,7 @@ const proposal = {
       "Funzioni dei siti ed extra",
       [
         "Il Sito Base presenta la galleria e le opere. Il Sito Avanzato aggiunge il pannello per gli aggiornamenti autonomi. Il Sito Pro comprende anche il gestionale richieste, informazioni e visite. Pannello e gestionale fanno parte delle rispettive offerte e non sono acquistabili come extra separati.",
-        "Le Gallery Digital Cards sono l’unico extra, a 110 €. Richiedono il pannello e possono essere aggiunte al Sito Avanzato o al Sito Pro. La galleria gestisce una card per ciascun artista e sceglie se indirizzare al sito, al profilo dell’artista o a una specifica opera."
+        "Le Gallery Digital Cards sono l’unico extra, a 110 €. Richiedono il pannello e possono essere aggiunte al Sito Avanzato o al Sito Pro. Ogni artista decide liberamente se indirizzare alla propria pagina, ad una singola opera o al sito."
       ]
     ],
     [
