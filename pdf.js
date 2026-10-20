@@ -10,7 +10,7 @@ function createPDF(lines){
  rect(0,0,595,842,'0.067 0.086 0.106');text('GALLERIA D’ARTE',44,793,9,muted);text('BOZZA DI PROPOSTA',384,793,9,muted);rule(777);
  text(lines[0].text,44,718,38,ink,true);text(lines[1].text,44,685,10,muted);
  text(lines[2].text.toUpperCase(),44,645,10,lime,true);
- const labels=['01 / OFFERTA','02 / BONUS INCLUSI','03 / BONUS AGGIUNTI'];
+ const labels=['01 / OFFERTA','02 / STRUMENTI INCLUSI','03 / STRUMENTI AGGIUNTI'];
  [3,4,5].forEach((j,i)=>{const y=610-i*72;text(labels[i],44,y,9,muted);wrap(lines[j].text,44,y-22,11,ink,490);rule(y-57)});
  rect(44,290,507,100,lime);text('TOTALE INDICATIVO',62,362,10,'0.067 0.086 0.106',true);text(lines[6].text,62,321,30,'0.067 0.086 0.106',true);
  let y=wrap(lines[7].text,44,267,10);y=wrap(lines[8].text,44,y-8,10);rule(y-10);
@@ -20,8 +20,8 @@ function createPDF(lines){
  let out='%PDF-1.4\n',offsets=[0];for(let i=1;i<objects.length;i++){offsets[i]=out.length;out+=`${i} 0 obj\n${objects[i]}\nendobj\n`}const start=out.length;out+=`xref\n0 ${objects.length}\n0000000000 65535 f \n`;for(let i=1;i<objects.length;i++)out+=`${String(offsets[i]).padStart(10,'0')} 00000 n \n`;out+=`trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF`;return new Uint8Array([...out].map(c=>c.charCodeAt(0)));
 }
 function optionLines(selection, date, confirmed) {
- const included = selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'Nessun bonus incluso';
- const added = selection.addedBonuses.length ? selection.addedBonuses.map(x => x.title + ' · ' + money(x.price)).join('; ') : 'Nessun bonus aggiunto';
+ const included = selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'Nessuno strumento incluso';
+ const added = selection.addedBonuses.length ? selection.addedBonuses.map(x => x.title + ' · ' + money(x.price)).join('; ') : 'Nessuno strumento aggiunto';
  return [
   {text: 'Proposta galleria'},
   {text: 'Data: ' + date + ' (Europe/Rome)'},
@@ -30,7 +30,7 @@ function optionLines(selection, date, confirmed) {
   {text: selection.pack.description},
   {text: included},
   {text: money(selection.total)},
-  {text: 'Bonus aggiunti: ' + added},
+  {text: 'Strumenti aggiunti: ' + added},
   {text: proposal.externalCosts},
   {text: confirmed ? 'Richiesta di conferma' : 'Riepilogo senza conferma'},
   {text: confirmed ? proposal.confirmation : 'Richiesta di conferma non selezionata. Condizioni e avvio da concordare.'},

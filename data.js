@@ -1,115 +1,217 @@
 const proposal = {
-  intro: [
-    'Un sito che dia spazio alle opere e renda semplice il primo contatto con la galleria: un catalogo da esplorare, immagini da osservare e informazioni chiare per chiedere dettagli o organizzare una visita.',
-    'La pagina si apre con il fac simile FORMA, così puoi navigare prima l’esperienza visiva proposta. Qui sotto trovi tre livelli di realizzazione, con funzioni, limiti e moduli aggiuntivi esplicitati.'
+  "intro": [
+    "Un sito che dia spazio alle opere e renda semplice il primo contatto con la galleria: un catalogo da esplorare, immagini da osservare e informazioni chiare per chiedere dettagli o organizzare una visita.",
+    "La pagina si apre con il fac simile FORMA, così puoi navigare prima l’esperienza visiva proposta. Qui sotto trovi tre livelli di realizzazione, con funzioni, limiti e moduli aggiuntivi esplicitati."
   ],
-  confirmation: 'Ho letto la selezione e chiedo di confermare perimetro, tempi e condizioni prima dell’avvio dei lavori.',
-  externalCosts: 'Dominio, hosting, servizi email, sincronizzazioni con calendari esterni ed eventuali servizi di terze parti si verificano e si concordano prima dell’avvio. Gli eventuali costi ricorrenti non sono compresi negli importi indicati.',
-  packages: [
+  "confirmation": "Ho letto la selezione e chiedo di confermare perimetro, tempi e condizioni prima dell’avvio dei lavori.",
+  "externalCosts": "Dominio, hosting, servizi email, sincronizzazioni con calendari esterni ed eventuali servizi di terze parti si verificano e si concordano prima dell’avvio. Gli eventuali costi ricorrenti non sono compresi negli importi indicati.",
+  "packages": [
     {
-      id: 'base', name: 'Base', price: 890, kicker: 'La galleria, online', includes: [],
-      description: 'Una presenza digitale progettata per presentare la galleria e le opere, far esplorare il catalogo e trasformare l’interesse in una richiesta diretta.',
-      blocks: [
-        {title: 'La galleria e le opere', text: 'Progetto grafico personalizzato sulla direzione visiva di FORMA e adattato all’identità della galleria. Le pagine raccontano spazio, ricerca e collezioni; il catalogo iniziale organizza le opere con immagini e schede chiare, consultabili da computer e smartphone.'},
-        {title: 'Un percorso semplice verso il contatto', text: 'La navigazione aiuta a trovare le opere attraverso categorie o filtri concordati. Le immagini si possono osservare nel dettaglio e il visitatore può salvare una selezione di preferiti sul proprio dispositivo. Ogni scheda accompagna verso un contatto via email o WhatsApp con il riferimento all’opera già pronto; il collegamento permette di chiedere informazioni o manifestare interesse per una visita.'}
+      "id": "base",
+      "name": "Sito Base",
+      "price": 890,
+      "kicker": "La galleria, online",
+      "includes": [],
+      "description": "Una presenza digitale progettata per presentare la galleria e le opere, far esplorare il catalogo e trasformare l’interesse in una richiesta diretta.",
+      "blocks": [
+        {
+          "title": "La galleria e le opere",
+          "text": "Progetto grafico personalizzato sulla direzione visiva di FORMA e adattato all’identità della galleria. Le pagine raccontano spazio, ricerca e collezioni; il catalogo iniziale organizza le opere con immagini e schede chiare, consultabili da computer e smartphone."
+        },
+        {
+          "title": "Un percorso semplice verso il contatto",
+          "text": "La navigazione aiuta a trovare le opere attraverso categorie o filtri concordati. Le immagini si possono osservare nel dettaglio e il visitatore può salvare una selezione di preferiti sul proprio dispositivo. Ogni scheda accompagna verso un contatto via email o WhatsApp con il riferimento all’opera già pronto; il collegamento permette di chiedere informazioni o manifestare interesse per una visita."
+        }
       ],
-      items: [
-        'Direzione grafica personalizzata, in coerenza con il fac simile FORMA e il tono della galleria.',
-        'Pagine per presentazione, spazi, collezioni e contatti, da definire insieme.',
-        'Caricamento iniziale fino a 25 opere con immagini, autore, titolo e dati disponibili.',
-        'Schede opera e navigazione ottimizzata per smartphone, tablet e computer.',
-        'Filtri di catalogo da concordare in base alle collezioni (per esempio artista, tecnica o categoria).',
-        'Immagini osservabili nel dettaglio e preferiti salvati sul dispositivo del visitatore.',
-        'Collegamento diretto a email e WhatsApp con richiesta contestuale all’opera e visita.',
-        'Impostazioni di base per titoli, descrizioni e condivisione delle pagine.'
+      "items": [
+        "Direzione grafica personalizzata, in coerenza con il fac simile FORMA e il tono della galleria.",
+        "Pagine per presentazione, spazi, collezioni e contatti, da definire insieme.",
+        "Profili degli artisti e pagine per mostre ed eventi, con struttura concordata.",
+        "Caricamento iniziale fino a 25 opere con immagini, autore, titolo e dati disponibili.",
+        "Schede opera e navigazione ottimizzata per smartphone, tablet e computer.",
+        "Filtri di catalogo da concordare in base alle collezioni (per esempio artista, tecnica o categoria).",
+        "Immagini osservabili nel dettaglio e preferiti salvati sul dispositivo del visitatore.",
+        "Collegamento diretto a email e WhatsApp con richiesta contestuale all’opera e visita.",
+        "Impostazioni di base per titoli, descrizioni e condivisione delle pagine."
       ],
-      benefit: 'Una presenza online curata che aiuta a passare dalla scoperta di un’opera a una conversazione con la galleria.',
-      limit: 'Il catalogo iniziale viene inserito in fase di realizzazione. Per nuovi contenuti o variazioni successive la galleria chiede un intervento concordato; il pannello non è compreso.'
+      "benefit": "Una presenza online curata che aiuta a passare dalla scoperta di un’opera a una conversazione con la galleria.",
+      "limit": "Il Sito Base non comprende il pannello: gli aggiornamenti successivi alla consegna richiedono un intervento concordato. Aggiungendo il pannello, la galleria può gestire autonomamente i contenuti previsti.",
+      "highlights": [
+        "Sito della galleria con identità visiva ispirata a FORMA.",
+        "Profili degli artisti, catalogo e schede delle opere.",
+        "Eventi, mostre e contatti diretti.",
+        "Strumenti di gestione aggiungibili secondo necessità."
+      ]
     },
     {
-      id: 'advanced', name: 'Avanzato', price: 1090, kicker: 'Gestione autonoma', includes: ['dashboard'],
-      description: 'Tutto il Base, con un pannello riservato per aggiornare in autonomia collezioni, immagini, schede e disponibilità delle opere.',
-      blocks: [
-        {title: 'Il pannello della galleria', text: 'Un accesso riservato permette al personale autorizzato di creare e aggiornare collezioni, caricare immagini, modificare i dati delle opere e organizzarne l’ordine senza intervenire sul codice del sito.'},
-        {title: 'La disponibilità è sempre chiara', text: 'Per ciascuna opera si aggiorna lo stato: disponibile, riservata o venduta. Il catalogo pubblico riflette gli aggiornamenti. Alla consegna è prevista una sessione guidata per imparare le operazioni quotidiane e ricevere istruzioni essenziali.'}
+      "id": "advanced",
+      "name": "Sito Avanzato",
+      "price": 1090,
+      "kicker": "Gestione autonoma",
+      "includes": [
+        "dashboard"
       ],
-      items: [
-        'Tutte le pagine, il catalogo e le funzioni del Sito Base.',
-        'Pannello di controllo con accesso riservato per gli utenti concordati.',
-        'Creazione e aggiornamento delle collezioni.',
-        'Aggiunta, modifica, riordino e rimozione delle opere.',
-        'Gestione di immagini, titolo, artista, tecnica, dimensioni, descrizione e altri campi concordati.',
-        'Aggiornamento dello stato: disponibile, riservata o venduta.',
-        'Sessione di consegna e guida operativa per l’aggiornamento dei contenuti.'
+      "description": "Tutto il Sito Base, con il pannello privato per aggiornare autonomamente il sito: artisti, opere, collezioni, eventi e disponibilità, senza dipendere dal mio intervento per le modifiche quotidiane.",
+      "blocks": [
+        {
+          "title": "Il sito nelle mani della galleria",
+          "text": "Dal pannello privato il personale autorizzato aggiorna profili degli artisti, schede delle opere, collezioni, mostre, eventi e contenuti concordati. Si caricano immagini e si modificano testi senza intervenire sul codice e senza dovermi chiedere ogni aggiornamento."
+        },
+        {
+          "title": "Opere e disponibilità aggiornate",
+          "text": "Ogni opera può essere aggiunta, modificata, riordinata o rimossa. Il suo stato può passare da disponibile a riservata o venduta e viene aggiornato anche sul sito pubblico. La consegna include una sessione guidata e istruzioni operative."
+        },
+        {
+          "title": "La base per gli strumenti della galleria",
+          "text": "Il pannello è il punto di accesso comune. Il gestionale delle richieste e le Gallery Digital Cards si possono attivare come sue estensioni: ciascuna aggiunge un’attività concreta da gestire nello stesso ambiente privato."
+        }
       ],
-      benefit: 'Rispetto al Base con pannello aggiunto separatamente, l’Avanzato costa 60 € in meno: il controllo dei contenuti è già incluso nell’offerta.',
-      limit: 'Il pannello gestisce i campi e i modelli concordati; non è un editor libero del sito né un gestionale per contabilità, magazzino o trattative. Le richieste smart e gli appuntamenti non sono inclusi.'
+      "items": [
+        "Tutte le pagine, il catalogo e le funzioni del Sito Base.",
+        "Pannello di controllo con accesso riservato per gli utenti concordati.",
+        "Creazione e aggiornamento delle collezioni.",
+        "Gestione autonoma dei profili degli artisti, delle mostre e degli eventi concordati.",
+        "Aggiunta, modifica, riordino e rimozione delle opere.",
+        "Gestione di immagini, titolo, artista, tecnica, dimensioni, descrizione e altri campi concordati.",
+        "Aggiornamento dello stato: disponibile, riservata o venduta.",
+        "Sessione di consegna e guida operativa per l’aggiornamento dei contenuti."
+      ],
+      "benefit": "La galleria aggiorna il sito in autonomia, con un unico ambiente privato per i contenuti e le eventuali estensioni.",
+      "limit": "L’autonomia riguarda i contenuti e le sezioni concordate. Nuovi layout e nuove funzionalità richiedono un intervento dedicato. Gestionale richieste e Gallery Digital Cards si aggiungono separatamente.",
+      "highlights": [
+        "Tutto il Sito Base.",
+        "Pannello privato di controllo già incluso.",
+        "Aggiornamenti autonomi di artisti, opere, collezioni ed eventi.",
+        "Disponibilità delle opere sempre aggiornate."
+      ]
     },
     {
-      id: 'pro', name: 'Pro', price: 1290, kicker: 'Relazioni e appuntamenti', includes: ['dashboard', 'appointments'],
-      description: 'Tutto l’Avanzato, con richieste d’informazione e appuntamenti collegati alle opere e alle disponibilità definite dalla galleria.',
-      blocks: [
-        {title: 'Informazioni collegate alle opere', text: 'Il visitatore può inviare una richiesta indicando l’opera d’interesse. La galleria riceve il contesto della richiesta insieme ai recapiti e può proseguire la conversazione con le informazioni necessarie.'},
-        {title: 'Orari e disponibilità aggiornati', text: 'Dal pannello si impostano giorni, fasce orarie e slot disponibili per le visite. Il sistema impedisce richieste su slot già occupati; quando una visita viene confermata o annullata, la disponibilità del calendario interno si aggiorna automaticamente.'},
-        {title: 'Selezioni da condividere con i collezionisti', text: 'La galleria può comporre una selezione di opere, aggiungere un breve testo introduttivo e condividere un link dedicato via email o WhatsApp. Il collezionista trova una presentazione coerente con la conversazione e può chiedere informazioni o una visita sulle opere selezionate.'},
-        {title: 'Una continuità con il pannello', text: 'Collezioni, stato delle opere e fasce di visita vengono gestiti in un unico ambiente. Alla consegna la galleria prova il flusso completo: impostazione delle disponibilità, richiesta da parte del visitatore e aggiornamento dello slot.'}
+      "id": "pro",
+      "name": "Sito Pro",
+      "price": 1290,
+      "kicker": "Relazioni e appuntamenti",
+      "includes": [
+        "dashboard",
+        "appointments"
       ],
-      items: [
-        'Tutte le pagine e le funzioni del Sito Avanzato, pannello incluso.',
-        'Modulo per richieste d’informazione collegate all’opera o alla pagina visitata.',
-        'Calendario interno per giorni, fasce orarie e slot disponibili.',
-        'Aggiornamento automatico delle disponibilità dopo conferma o annullamento.',
-        'Messaggi di conferma e riepilogo della richiesta per il visitatore e la galleria.',
-        'Gestione dal pannello delle disponibilità e delle richieste ricevute.',
-        'Selezioni personalizzate di opere con testo introduttivo e link dedicato per i collezionisti.',
-        'Richiesta di informazioni o visita contestuale alla selezione condivisa.',
-        'Verifica guidata del flusso e istruzioni per la gestione quotidiana.'
+      "description": "Tutto il Sito Avanzato, con modulo per informazioni e appuntamenti e un gestionale integrato nel pannello: la galleria risponde direttamente, segue le richieste e automatizza l’organizzazione delle visite.",
+      "blocks": [
+        {
+          "title": "Dal sito alla richiesta",
+          "text": "Il visitatore chiede informazioni su un artista, un’opera o un evento, oppure propone una visita scegliendo tra le disponibilità pubblicate. La richiesta arriva nel gestionale con recapiti, messaggio e riferimento al contenuto di interesse."
+        },
+        {
+          "title": "Risposte direttamente dal gestionale",
+          "text": "Nel pannello la galleria consulta le richieste, risponde all’interessato e segue lo stato della conversazione: nuova, in gestione o conclusa. Messaggi e riferimento all’opera restano associati alla stessa richiesta."
+        },
+        {
+          "title": "Visite organizzate automaticamente",
+          "text": "La galleria stabilisce giorni di apertura alle visite, fasce orarie, durata degli appuntamenti e giorni di chiusura. Il calendario propone gli slot liberi; prenotazioni confermate, modifiche e annullamenti aggiornano le disponibilità, evitando sovrapposizioni."
+        },
+        {
+          "title": "Un unico ambiente di lavoro",
+          "text": "Contenuti del sito, disponibilità delle opere, richieste e visite vengono gestiti nello stesso pannello privato. Conferme e promemoria delle visite vengono impostati nel flusso concordato alla consegna."
+        }
       ],
-      after: 'L’offerta comprende il calendario interno del sito. L’eventuale sincronizzazione con Google Calendar, Outlook o altri servizi richiede una verifica tecnica e una conferma separata. Le notifiche dipendono dai servizi concordati.',
-      benefit: 'Rispetto ad Avanzato più gestione smart aggiunta separatamente, il Pro costa 90 € in meno. La galleria offre un percorso più diretto tra interesse, richiesta e visita.',
-      limit: 'Il sistema organizza richieste e disponibilità, ma non sostituisce il rapporto personale, la trattativa o la vendita, che restano gestiti dalla galleria. Calendari esterni, notifiche o automazioni di terze parti vanno verificati e non sono inclusi di default.'
+      "items": [
+        "Tutte le pagine e le funzioni del Sito Avanzato, pannello incluso.",
+        "Modulo per informazioni su artisti, opere ed eventi e per richieste di appuntamento o visita.",
+        "Gestionale delle richieste con messaggi, recapiti, riferimenti e stato di lavorazione.",
+        "Risposta diretta all’interessato dal gestionale.",
+        "Configurazione di giorni disponibili, fasce orarie, durata delle visite e chiusure.",
+        "Calendario con aggiornamento automatico degli slot dopo conferme, modifiche e annullamenti.",
+        "Conferme e promemoria delle visite secondo il flusso concordato.",
+        "Sessione guidata sull’intero percorso, dalla richiesta alla visita."
+      ],
+      "after": "Il gestionale è un’estensione del pannello e comprende il calendario interno. La galleria mantiene il controllo delle risposte, delle conferme e delle disponibilità pubblicate.",
+      "benefit": "Le richieste diventano un’attività organizzata: la galleria risponde in prima persona e il calendario mantiene aggiornati gli appuntamenti.",
+      "limit": "Le Gallery Digital Cards sono opzionali anche nel Sito Pro. L’invio delle risposte e delle notifiche richiede la configurazione del servizio email; collegamenti a calendari o servizi esterni si concordano separatamente.",
+      "highlights": [
+        "Tutto il Sito Avanzato.",
+        "Modulo informazioni e richieste di visita incluso.",
+        "Gestionale per rispondere direttamente alle richieste.",
+        "Organizzazione delle visite e disponibilità automatizzate."
+      ]
     }
   ],
-  bonuses: [
+  "bonuses": [
     {
-      id: 'qr', title: 'Scheda digitale e QR', price: 110, requires: 'dashboard',
-      tag: 'Modulo opzionale · Richiede il pannello',
-      text: 'Un QR apre una web app con la destinazione scelta dalla galleria: la scheda di una singola opera, la pagina di un artista, una mostra o un evento, i contatti oppure il sito. Ogni codice può essere collegato a una destinazione specifica; con il pannello il collegamento si aggiorna senza ristampare il QR.',
-      lockedText: 'Richiede un pannello di controllo. Con il Base si sblocca aggiungendo prima il pannello; Avanzato e Pro lo comprendono già.'
+      "id": "dashboard",
+      "title": "Pannello di controllo",
+      "price": 260,
+      "requires": null,
+      "tag": "Incluso in Sito Avanzato e Sito Pro",
+      "text": "Il pannello privato da cui la galleria aggiorna autonomamente il sito, senza dipendere da me per le modifiche quotidiane. È anche la base comune per attivare il gestionale richieste e le Gallery Digital Cards.",
+      "details": [
+        "Aggiornamento di profili degli artisti, opere, collezioni, mostre ed eventi nelle sezioni concordate.",
+        "Modifica di testi, immagini, ordine dei contenuti e disponibilità: disponibile, riservata o venduta.",
+        "Accesso privato, sessione guidata e istruzioni per le attività quotidiane."
+      ],
+      "lockedText": "Seleziona prima un’offerta. Il pannello è aggiungibile al Sito Base ed è già incluso in Sito Avanzato e Sito Pro."
     },
     {
-      id: 'dashboard', title: 'Pannello di controllo della galleria', price: 260, requires: null,
-      tag: 'Incluso in Avanzato e Pro',
-      text: 'Area riservata per aggiornare collezioni e opere: immagini, informazioni, ordine e stato di disponibilità. Se aggiunto al Base, offre alla galleria autonomia nella gestione dei contenuti previsti.',
-      lockedText: 'È un modulo aggiungibile al Base. Avanzato e Pro lo comprendono già.'
+      "id": "appointments",
+      "title": "Richieste, informazioni e visite",
+      "price": 290,
+      "requires": "dashboard",
+      "tag": "Modulo + gestionale · Incluso nel Sito Pro",
+      "text": "Un modulo sul sito raccoglie informazioni e richieste di appuntamento o visita. Nel gestionale, integrato nel pannello, la galleria risponde direttamente e automatizza l’organizzazione degli incontri.",
+      "details": [
+        "Richieste collegate ad artisti, opere ed eventi, con messaggio e recapiti dell’interessato.",
+        "Risposte direttamente dal gestionale e organizzazione delle richieste per stato.",
+        "Giorni, orari, durata delle visite e chiusure configurabili dalla galleria.",
+        "Disponibilità aggiornate automaticamente dopo conferme, spostamenti e annullamenti; conferme e promemoria nel flusso concordato."
+      ],
+      "lockedText": "Richiede il pannello di controllo. Nel Sito Base aggiungi prima il pannello; nel Sito Avanzato puoi aggiungere il gestionale; nel Sito Pro è già incluso."
     },
     {
-      id: 'appointments', title: 'Gestione smart di informazioni e appuntamenti', price: 290, requires: 'dashboard',
-      tag: 'Inclusa nel Pro · Aggiungibile con il pannello',
-      text: 'Modulo con form contestuali alle opere e calendario interno delle visite. La galleria definisce giorni, orari e slot; le richieste occupano una disponibilità e conferma o annullamento aggiorna automaticamente gli slot liberi.',
-      lockedText: 'Richiede il pannello. Con Base si attiva aggiungendo prima il pannello; Avanzato può aggiungerlo separatamente; Pro lo comprende già.'
+      "id": "qr",
+      "title": "Gallery Digital Cards",
+      "price": 110,
+      "requires": "dashboard",
+      "tag": "Estensione del pannello · Sempre opzionale",
+      "text": "Ogni artista ha la propria card digitale, gestita dal pannello privato della galleria. Con un link o QR code può indirizzare potenziali acquirenti e interessati al proprio profilo, a eventi specifici o alle singole opere.",
+      "details": [
+        "Creazione e gestione di una card per ciascun artista del catalogo concordato.",
+        "Link e QR code condivisibili online, in galleria, durante mostre e incontri.",
+        "Scelta della destinazione: profilo dell’artista, evento specifico o singola opera.",
+        "Aggiornamento della destinazione dal pannello senza ristampare il QR code."
+      ],
+      "lockedText": "Le Gallery Digital Cards richiedono il pannello di controllo. Aggiungilo al Sito Base oppure scegli Sito Avanzato o Sito Pro."
     }
   ],
-  sections: [
-    ['Perimetro del progetto', [
-      'La proposta considera un sito in italiano, una sede e un catalogo iniziale fino a 25 opere. La galleria fornisce testi, fotografie e informazioni disponibili; quantità e materiali vengono confermati prima dell’avvio.',
-      'Sono inclusi adattamento grafico, caricamento iniziale dei contenuti concordati, verifica su smartphone e computer e un ciclo di revisione su testi e impaginazione.',
-      'Produzione fotografica, traduzioni, redazione estesa dei testi, e-commerce, pagamenti online e inventario amministrativo non sono inclusi. Eventuali richieste fuori perimetro si stimano prima di procedere.'
-    ]],
-    ['Materiali, fasi e tempi', [
-      'Per partire raccogliamo logo, identità visiva, contatti, testi, immagini e dati delle opere. Definiamo insieme le pagine, le categorie di catalogo e, se scelto, i campi del pannello.',
-      'Dopo la conferma dei materiali e delle funzioni preparo la struttura e la direzione grafica, inserisco i contenuti, raccolgo le osservazioni nel ciclo di revisione e verifico il sito prima della consegna.',
-      'Le date di lavorazione e consegna si concordano dopo aver ricevuto i materiali e aver validato il perimetro.'
-    ]],
-    ['Bonus e dipendenze', [
-      'Base non include bonus. Avanzato include il pannello; Pro include pannello e gestione smart di informazioni e appuntamenti. Quando un modulo è incluso, nel configuratore appare già incluso e non può essere selezionato una seconda volta.',
-      'La scheda digitale con QR è l’unico modulo che resta opzionale per tutti i pacchetti. Richiede il pannello perché la galleria possa modificare la destinazione dei collegamenti; nel Base senza pannello resta bloccata.',
-      'Se aggiunti separatamente: pannello 260 €, gestione smart 290 € (con pannello attivo) e scheda digitale/QR 110 € (con pannello attivo). Il riepilogo ricalcola la somma in base alla configurazione.'
-    ]],
-    ['Consegna, costi e assistenza', [
-      'Alla consegna la galleria riceve gli accessi e le istruzioni per le funzioni comprese; Avanzato e Pro includono una sessione guidata sul pannello.',
-      'Propongo 30 giorni di assistenza per correggere difetti delle funzioni concordate. Aggiornamenti continuativi dei contenuti, manutenzione, nuove funzioni e richieste aggiuntive si valutano separatamente.',
-      'Dominio, hosting, caselle email, servizi di calendario esterni e strumenti di terze parti possono comportare costi ricorrenti e non sono compresi. Modalità di pagamento e trattamento fiscale saranno specificati nel preventivo definitivo.'
-    ]]
+  "sections": [
+    [
+      "Perimetro del progetto",
+      [
+        "La proposta considera un sito in italiano, una sede e un catalogo iniziale fino a 25 opere. La galleria fornisce testi, fotografie e informazioni disponibili; quantità e materiali vengono confermati prima dell’avvio.",
+        "Sono inclusi adattamento grafico, caricamento iniziale dei contenuti concordati, verifica su smartphone e computer e un ciclo di revisione su testi e impaginazione.",
+        "Produzione fotografica, traduzioni, redazione estesa dei testi, e-commerce, pagamenti online e inventario amministrativo non sono inclusi. Eventuali richieste fuori perimetro si stimano prima di procedere."
+      ]
+    ],
+    [
+      "Materiali, fasi e tempi",
+      [
+        "Per partire raccogliamo logo, identità visiva, contatti, testi, immagini e dati delle opere. Definiamo insieme le pagine, le categorie di catalogo e, se scelto, i campi del pannello.",
+        "Dopo la conferma dei materiali e delle funzioni preparo la struttura e la direzione grafica, inserisco i contenuti, raccolgo le osservazioni nel ciclo di revisione e verifico il sito prima della consegna.",
+        "Le date di lavorazione e consegna si concordano dopo aver ricevuto i materiali e aver validato il perimetro."
+      ]
+    ],
+    [
+      "Strumenti e dipendenze",
+      [
+        "Il Sito Base non include strumenti opzionali. Il Sito Avanzato include il pannello di controllo. Il Sito Pro include pannello e modulo richieste, informazioni e appuntamenti/visite con il relativo gestionale.",
+        "Gestionale richieste e Gallery Digital Cards sono estensioni pratiche del pannello: si possono attivare soltanto quando il pannello è incluso nell’offerta o aggiunto alla configurazione.",
+        "Le Gallery Digital Cards restano opzionali per tutte le offerte. Gli strumenti già compresi vengono indicati come già inclusi e non sono selezionabili una seconda volta."
+      ]
+    ],
+    [
+      "Consegna, costi e assistenza",
+      [
+        "Alla consegna la galleria riceve gli accessi e le istruzioni per le funzioni comprese; Avanzato e Pro includono una sessione guidata sul pannello.",
+        "Propongo 30 giorni di assistenza per correggere difetti delle funzioni concordate. Aggiornamenti continuativi dei contenuti, manutenzione, nuove funzioni e richieste aggiuntive si valutano separatamente.",
+        "Dominio, hosting, caselle email, servizi di calendario esterni e strumenti di terze parti possono comportare costi ricorrenti e non sono compresi. Modalità di pagamento e trattamento fiscale saranno specificati nel preventivo definitivo."
+      ]
+    ]
   ]
 };

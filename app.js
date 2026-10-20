@@ -22,7 +22,7 @@ function clearImpossibleSelections(pack) {
 }
 function renderPackages() {
  const root = $('packages'); root.replaceChildren();
- const includedTitles = {dashboard:'Pannello di controllo incluso', appointments:'Gestione smart inclusa'};
+ const includedTitles = {dashboard:'Pannello di controllo incluso', appointments:'Gestionale richieste e visite incluso'};
  proposal.packages.forEach((pack, index) => {
   const card = document.createElement('article');
   card.className = 'package' + (selectedPack?.id === pack.id ? ' is-selected' : '');
@@ -38,7 +38,7 @@ function renderPackages() {
   card.append(header, para(pack.description, 'package-description'));
 
   const highlights = document.createElement('ul'); highlights.className = 'package-highlights';
-  pack.items.slice(0, 4).forEach(item => { const li = document.createElement('li'); li.textContent = item; highlights.append(li); });
+  (pack.highlights || pack.items.slice(0, 4)).forEach(item => { const li = document.createElement('li'); li.textContent = item; highlights.append(li); });
   card.append(highlights);
 
   const details = document.createElement('details'); details.className = 'package-details';
@@ -66,11 +66,18 @@ function renderBonuses() {
   const card = document.createElement('article'); card.className = 'bonus-card';
   const head = document.createElement('div'); head.className = 'bonus-card-head'; const title = document.createElement('h3'); title.textContent = item.title; const tag = para(item.tag, 'bonus-tag'); head.append(title, tag); card.append(head, para(item.text, 'bonus-description'));
   const included = includedIds(selectedPack).includes(item.id);
-  const locked = !!item.requires && !panelActive();
-  const choice = toggleLabel(item, included, locked, locked ? item.lockedText : '');
+  const locked = !selectedPack || (!!item.requires && !panelActive());
+  const detail = document.createElement('details'); detail.className = 'bonus-price-details';
+  const summary = document.createElement('summary'); summary.textContent = included ? 'Funzioni dello strumento incluso' : 'Approfondisci lo strumento';
+  const info = document.createElement('div'); info.className = 'tool-details';
+  const list = document.createElement('ul');
+  (item.details || []).forEach(text => { const li = document.createElement('li'); li.textContent = text; list.append(li); }); info.append(list);
+  if (!included) { const price = document.createElement('strong'); price.className = 'tool-price'; price.textContent = money(item.price); info.append(price); }
+  if (locked) info.append(para(!selectedPack ? 'Seleziona prima un’offerta per configurare gli strumenti.' : item.lockedText, 'tool-requirement'));
+  const choice = toggleLabel(item, included, locked, !selectedPack ? 'Seleziona prima un’offerta' : 'Richiede il pannello di controllo');
   choice.querySelector('input').addEventListener('change', event => { if (event.target.checked) selectedBonuses.add(item.id); else { selectedBonuses.delete(item.id); if (item.id === 'dashboard') { selectedBonuses.delete('qr'); selectedBonuses.delete('appointments'); } } renderBonuses(); renderSummary(); });
-  card.append(choice);
-  if (!included) { const detail = document.createElement('details'); detail.className = 'bonus-price-details'; const summary = document.createElement('summary'); summary.textContent = 'Prezzo e condizioni'; const info = document.createElement('div'); info.className = 'bonus-price-info'; const price = document.createElement('strong'); price.textContent = money(item.price); info.append(price, para(locked ? item.lockedText : item.requires === 'dashboard' ? 'Disponibile se è attivo il pannello di controllo.' : 'Puoi aggiungerlo al pacchetto selezionato.')); detail.append(summary, info); card.append(detail); }
+  info.append(choice); detail.append(summary, info); card.append(detail);
+  if (included) card.append(para('Già incluso nell’offerta selezionata', 'tool-included'));
   root.append(card);
  });
 }
@@ -79,9 +86,9 @@ function renderSummary() {
  if (!selectedPack) { $('total').textContent = 'Scegli un’offerta'; $('preview').disabled = true; return; }
  root.append(line(selectedPack.name, 'summary-primary')); root.append(line('Pacchetto · ' + money(selectedPack.price), 'summary-row'));
  const included = selectedBonusIds().filter(id => selectedPack.includes.includes(id)).map(bonusById);
- if (included.length) { root.append(line('Bonus inclusi', 'summary-label')); included.forEach(item => root.append(line(item.title + ' · già incluso', 'summary-row'))); }
+ if (included.length) { root.append(line('Strumenti inclusi', 'summary-label')); included.forEach(item => root.append(line(item.title + ' · già incluso', 'summary-row'))); }
  const additions = selectedAddons();
- if (additions.length) { root.append(line('Bonus aggiunti', 'summary-label')); additions.forEach(item => root.append(line(item.title + ' · ' + money(item.price), 'summary-row'))); }
+ if (additions.length) { root.append(line('Strumenti aggiunti', 'summary-label')); additions.forEach(item => root.append(line(item.title + ' · ' + money(item.price), 'summary-row'))); }
  $('total').textContent = money(totalAmount()); $('preview').disabled = false;
 }
 function dateLabel() { return new Intl.DateTimeFormat('it-IT', {timeZone:'Europe/Rome', day:'2-digit', month:'long', year:'numeric'}).format(new Date()); }
@@ -90,8 +97,8 @@ function sheetContent(selection, confirmed) {
  const root = $('sheet'); root.replaceChildren();
  const h = document.createElement('h3'); h.textContent = selection.pack.name + ' · ' + money(selection.pack.price); root.append(h);
  root.append(para(selection.pack.description));
- const included = para('Bonus inclusi: ' + (selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'nessuno')); root.append(included);
- if (selection.addedBonuses.length) root.append(para('Bonus aggiunti: ' + selection.addedBonuses.map(x => x.title + ' (' + money(x.price) + ')').join(', ')));
+ const included = para('Strumenti inclusi: ' + (selection.includedBonuses.length ? selection.includedBonuses.map(x => x.title).join(', ') : 'nessuno')); root.append(included);
+ if (selection.addedBonuses.length) root.append(para('Strumenti aggiunti: ' + selection.addedBonuses.map(x => x.title + ' (' + money(x.price) + ')').join(', ')));
  const total = document.createElement('strong'); total.className = 'sheet-total'; total.textContent = 'Totale indicativo · ' + money(selection.total); root.append(total);
  root.append(para('Data: ' + dateLabel() + ' (Europe/Rome)'));
  root.append(para(confirmed ? proposal.confirmation : 'Riepilogo senza conferma: condizioni e avvio da concordare.'));

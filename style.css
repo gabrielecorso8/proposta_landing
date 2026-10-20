@@ -383,3 +383,11 @@ body:has(dialog[open]) { overflow: hidden; }
  .package-purchase .button { width: 100%; }
  .package.is-selected { padding-inline: 12px; }
 }
+.tool-details { padding: 12px 0 4px; }
+.tool-details ul { margin: 0 0 18px; padding-left: 17px; color: var(--muted); font-size: 13px; }
+.tool-details li + li { margin-top: 9px; }
+.tool-price { display: block; margin: 12px 0; color: var(--accent); font-size: 25px; font-weight: 400; }
+.tool-requirement { margin: 12px 0; color: var(--muted); font-size: 12px; }
+.tool-included { margin-top: 14px; color: var(--accent); font-size: 12px; }
+.package-label { flex-direction: column-reverse; align-items: flex-start; gap: 5px; }
+.package-number { margin: 0; }

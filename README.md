@@ -1,38 +1,27 @@
 # Proposta sito per galleria d’arte
 
-Bozza interattiva per presentare tre proposte complete e moduli aggiuntivi, con FORMA come riferimento visivo e primo passaggio prima delle offerte. I riquadri chiusi mostrano descrizioni e punti distintivi; il prezzo appare solo nell’approfondimento della singola offerta.
+Pagina statica con FORMA come riferimento navigabile prima delle offerte. Le descrizioni sono visibili nei riquadri chiusi; i prezzi delle offerte compaiono soltanto nell’approfondimento.
 
-## Pacchetti
+## Offerte
 
-- Base · 890 €: sito per presentare galleria e opere, senza bonus.
-- Avanzato · 1.090 €: Base con pannello di controllo della galleria incluso.
-- Pro · 1.290 €: Avanzato con gestione smart delle richieste e degli appuntamenti inclusa.
+- Sito Base: 890 €, senza strumenti inclusi.
+- Sito Avanzato: 1.090 €, pannello di controllo incluso.
+- Sito Pro: 1.290 €, pannello e modulo richieste, informazioni e appuntamenti/visite con gestionale inclusi.
 
-I prezzi delle offerte appaiono all’interno dell’approfondimento, non nei riquadri chiusi. Il riepilogo mostra il prezzo solo dopo la selezione di un’offerta.
+## Strumenti
 
-## Bonus
+1. Pannello di controllo: 260 € se aggiunto al Sito Base. Consente alla galleria di aggiornare autonomamente artisti, opere, collezioni, mostre, eventi e disponibilità nelle sezioni concordate.
+2. Richieste, informazioni e visite: 290 € se aggiunto separatamente. Il modulo pubblico raccoglie richieste; dal gestionale la galleria risponde direttamente e gestisce le visite con calendario e disponibilità aggiornate automaticamente.
+3. Gallery Digital Cards: 110 €, sempre opzionali. Ogni artista ha una card con link/QR gestita dal pannello privato della galleria e indirizzabile al proprio profilo, a eventi o a singole opere.
 
-- Scheda digitale e QR · 110 €: web app e collegamento configurabile a opera, artista, mostra, contatti o sito. Richiede il pannello.
-- Pannello di controllo · 260 €: aggiungibile al Base; già incluso in Avanzato e Pro.
-- Gestione smart di informazioni e appuntamenti · 290 €: aggiungibile quando il pannello è attivo; già inclusa in Pro.
+Il secondo e il terzo strumento richiedono il pannello. Gli strumenti già compresi nell’offerta sono indicati come inclusi e non selezionabili. Rimuovendo un pannello aggiunto al Sito Base si rimuovono anche le sue estensioni selezionate. Senza un’offerta scelta non è possibile attivare strumenti.
 
-Un bonus incluso viene segnato come «Già incluso» e non è selezionabile. Il Base può attivare il QR solo aggiungendo prima il pannello. Le disponibilità del Pro si aggiornano nel calendario interno; l’eventuale sincronizzazione esterna va verificata e concordata.
+## Perimetro
 
-## Perimetro da confermare
+La proposta considera una sede, una lingua, fino a 25 opere iniziali e un ciclo di revisione, con materiali forniti dalla galleria. Servizio email, dominio, hosting, eventuali calendari esterni e costi ricorrenti si definiscono prima dell’avvio.
 
-La proposta considera fino a 25 opere iniziali, una lingua, una sede e un ciclo di revisione. Testi, fotografie, dominio, hosting e servizi di terze parti restano da definire nel preventivo definitivo.
+## Uso
 
-## Pubblicazione e uso
+Aprire `index.html` oppure avviare un server statico dalla cartella del repository. GitHub Pages può pubblicare la root della branch scelta.
 
-Pagina statica senza dipendenze. Per GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root). Avviare una preview locale con `python -m http.server 8765` dalla cartella del repository e aprire `http://localhost:8765`.
-
-Il PDF viene generato localmente e riporta offerta, bonus inclusi, bonus aggiunti, totale, data Europe/Rome e stato della richiesta di conferma. Le scelte non vengono inviate a un server.
-
-## File
-
-- `index.html`: interfaccia e presentazione FORMA
-- `style.css`: stile editoriale responsive
-- `data.js`: descrizioni, prezzi e condizioni
-- `app.js`: selezione pacchetti/bonus, riepilogo e PDF
-- `pdf.js`: generazione PDF locale
-- `assets/forma-preview.png`: anteprima cliccabile del fac simile FORMA
+Le scelte restano nel browser. Il PDF viene generato localmente con offerta, strumenti inclusi, strumenti aggiunti, totale e data. La pagina è una proposta commerciale: gli strumenti descritti saranno sviluppati nel sito della galleria.
