@@ -1,6 +1,6 @@
 # Proposta sito per galleria d’arte
 
-Bozza interattiva per presentare tre livelli di sito e moduli aggiuntivi, con FORMA come riferimento visivo e primo passaggio prima delle offerte.
+Bozza interattiva per presentare tre proposte complete e moduli aggiuntivi, con FORMA come riferimento visivo e primo passaggio prima delle offerte. I riquadri chiusi mostrano descrizioni e punti distintivi; il prezzo appare solo nell’approfondimento della singola offerta.
 
 ## Pacchetti
 

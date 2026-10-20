@@ -22,26 +22,42 @@ function clearImpossibleSelections(pack) {
 }
 function renderPackages() {
  const root = $('packages'); root.replaceChildren();
+ const includedTitles = {dashboard:'Pannello di controllo incluso', appointments:'Gestione smart inclusa'};
  proposal.packages.forEach((pack, index) => {
-  const details = document.createElement('details'); details.className = 'package'; details.dataset.id = pack.id;
-  const summary = document.createElement('summary'); summary.className = 'package-summary';
+  const card = document.createElement('article');
+  card.className = 'package' + (selectedPack?.id === pack.id ? ' is-selected' : '');
+  card.dataset.id = pack.id;
+
+  const header = document.createElement('div'); header.className = 'package-summary';
   const number = document.createElement('span'); number.className = 'package-number'; number.textContent = String(index + 1).padStart(2, '0');
   const label = document.createElement('span'); label.className = 'package-label';
   const kicker = para(pack.kicker, 'package-kicker'); const name = document.createElement('strong'); name.textContent = pack.name; label.append(kicker, name);
-  const action = document.createElement('span'); action.className = 'package-open'; action.textContent = 'Approfondisci +'; summary.append(number, label, action);
+  const included = document.createElement('div'); included.className = 'package-included';
+  pack.includes.forEach(id => { const badge = document.createElement('span'); badge.textContent = includedTitles[id] || bonusById(id)?.title || id; included.append(badge); });
+  header.append(number, label, included);
+  card.append(header, para(pack.description, 'package-description'));
+
+  const highlights = document.createElement('ul'); highlights.className = 'package-highlights';
+  pack.items.slice(0, 4).forEach(item => { const li = document.createElement('li'); li.textContent = item; highlights.append(li); });
+  card.append(highlights);
+
+  const details = document.createElement('details'); details.className = 'package-details';
+  const summary = document.createElement('summary'); summary.textContent = 'Approfondisci l’offerta';
   const body = document.createElement('div'); body.className = 'package-body';
-  body.append(para(pack.description, 'package-description'));
   const blocks = document.createElement('div'); blocks.className = 'package-blocks';
   pack.blocks.forEach(block => { const section = document.createElement('section'); const h = document.createElement('h4'); h.textContent = block.title; section.append(h, para(block.text)); blocks.append(section); }); body.append(blocks);
+  const listTitle = document.createElement('h4'); listTitle.className = 'package-list-title'; listTitle.textContent = 'Cosa comprende'; body.append(listTitle);
   const list = document.createElement('ul'); list.className = 'package-items'; pack.items.forEach(item => { const li = document.createElement('li'); li.textContent = item; list.append(li); }); body.append(list);
-  const benefit = document.createElement('p'); benefit.className = 'package-benefit'; benefit.textContent = pack.benefit; body.append(benefit);
+  const benefit = document.createElement('p'); benefit.className = 'package-benefit'; benefit.append(document.createTextNode('Il vantaggio · ' + pack.benefit)); body.append(benefit);
   const limit = document.createElement('p'); limit.className = 'package-limit'; limit.append(document.createTextNode('Limite · ' + pack.limit)); body.append(limit);
   if (pack.after) body.append(para(pack.after, 'package-after'));
   const purchase = document.createElement('div'); purchase.className = 'package-purchase';
   const price = document.createElement('strong'); price.className = 'expanded-price'; price.textContent = money(pack.price);
-  const choose = document.createElement('button'); choose.type = 'button'; choose.className = 'button button-dark select-package'; choose.textContent = selectedPack?.id === pack.id ? 'Offerta selezionata ✓' : 'Scegli questa offerta'; choose.addEventListener('click', () => { selectedPack = pack; clearImpossibleSelections(pack); renderPackages(); renderBonuses(); renderSummary(); });
+  const choose = document.createElement('button'); choose.type = 'button'; choose.className = 'button button-dark select-package'; choose.textContent = selectedPack?.id === pack.id ? 'Offerta selezionata ✓' : 'Scegli questa offerta';
+  choose.addEventListener('click', () => { selectedPack = pack; clearImpossibleSelections(pack); renderPackages(); renderBonuses(); renderSummary(); });
   purchase.append(price, choose); body.append(purchase); details.append(summary, body);
-  details.addEventListener('toggle', () => { action.textContent = details.open ? 'Chiudi −' : 'Approfondisci +'; }); if (selectedPack?.id === pack.id) details.open = true; root.append(details);
+  if (selectedPack?.id === pack.id) details.open = true;
+  card.append(details); root.append(card);
  });
 }
 function renderBonuses() {

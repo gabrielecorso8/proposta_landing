@@ -11,7 +11,7 @@ const proposal = {
       description: 'Una presenza digitale progettata per presentare la galleria e le opere, far esplorare il catalogo e trasformare l’interesse in una richiesta diretta.',
       blocks: [
         {title: 'La galleria e le opere', text: 'Progetto grafico personalizzato sulla direzione visiva di FORMA e adattato all’identità della galleria. Le pagine raccontano spazio, ricerca e collezioni; il catalogo iniziale organizza le opere con immagini e schede chiare, consultabili da computer e smartphone.'},
-        {title: 'Un percorso semplice verso il contatto', text: 'La navigazione aiuta a trovare le opere attraverso categorie o filtri concordati. Ogni scheda accompagna il visitatore verso un contatto via email o WhatsApp, con il riferimento all’opera d’interesse pronto da condividere. È possibile richiedere informazioni o manifestare interesse per una visita.'}
+        {title: 'Un percorso semplice verso il contatto', text: 'La navigazione aiuta a trovare le opere attraverso categorie o filtri concordati. Le immagini si possono osservare nel dettaglio e il visitatore può salvare una selezione di preferiti sul proprio dispositivo. Ogni scheda accompagna verso un contatto via email o WhatsApp con il riferimento all’opera già pronto; il collegamento permette di chiedere informazioni o manifestare interesse per una visita.'}
       ],
       items: [
         'Direzione grafica personalizzata, in coerenza con il fac simile FORMA e il tono della galleria.',
@@ -19,7 +19,8 @@ const proposal = {
         'Caricamento iniziale fino a 25 opere con immagini, autore, titolo e dati disponibili.',
         'Schede opera e navigazione ottimizzata per smartphone, tablet e computer.',
         'Filtri di catalogo da concordare in base alle collezioni (per esempio artista, tecnica o categoria).',
-        'Collegamento diretto a email e WhatsApp con richiesta contestuale all’opera.',
+        'Immagini osservabili nel dettaglio e preferiti salvati sul dispositivo del visitatore.',
+        'Collegamento diretto a email e WhatsApp con richiesta contestuale all’opera e visita.',
         'Impostazioni di base per titoli, descrizioni e condivisione delle pagine.'
       ],
       benefit: 'Una presenza online curata che aiuta a passare dalla scoperta di un’opera a una conversazione con la galleria.',
@@ -50,6 +51,7 @@ const proposal = {
       blocks: [
         {title: 'Informazioni collegate alle opere', text: 'Il visitatore può inviare una richiesta indicando l’opera d’interesse. La galleria riceve il contesto della richiesta insieme ai recapiti e può proseguire la conversazione con le informazioni necessarie.'},
         {title: 'Orari e disponibilità aggiornati', text: 'Dal pannello si impostano giorni, fasce orarie e slot disponibili per le visite. Il sistema impedisce richieste su slot già occupati; quando una visita viene confermata o annullata, la disponibilità del calendario interno si aggiorna automaticamente.'},
+        {title: 'Selezioni da condividere con i collezionisti', text: 'La galleria può comporre una selezione di opere, aggiungere un breve testo introduttivo e condividere un link dedicato via email o WhatsApp. Il collezionista trova una presentazione coerente con la conversazione e può chiedere informazioni o una visita sulle opere selezionate.'},
         {title: 'Una continuità con il pannello', text: 'Collezioni, stato delle opere e fasce di visita vengono gestiti in un unico ambiente. Alla consegna la galleria prova il flusso completo: impostazione delle disponibilità, richiesta da parte del visitatore e aggiornamento dello slot.'}
       ],
       items: [
@@ -59,6 +61,8 @@ const proposal = {
         'Aggiornamento automatico delle disponibilità dopo conferma o annullamento.',
         'Messaggi di conferma e riepilogo della richiesta per il visitatore e la galleria.',
         'Gestione dal pannello delle disponibilità e delle richieste ricevute.',
+        'Selezioni personalizzate di opere con testo introduttivo e link dedicato per i collezionisti.',
+        'Richiesta di informazioni o visita contestuale alla selezione condivisa.',
         'Verifica guidata del flusso e istruzioni per la gestione quotidiana.'
       ],
       after: 'L’offerta comprende il calendario interno del sito. L’eventuale sincronizzazione con Google Calendar, Outlook o altri servizi richiede una verifica tecnica e una conferma separata. Le notifiche dipendono dai servizi concordati.',
